@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginForm() {
@@ -21,34 +22,34 @@ function LoginForm() {
   };
 
   return (
-    <div className='container'>
-      <div className='form-container'>
+    <div>
+      <div className='login-container'>
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <label>
-            Username or Email
+            <h4>Log in</h4>
             <input
               type="text"
+              placeholder="Username or Email"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
               required
             />
-          </label>
-          <label>
-            Password
             <input
               type="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </label>
-          <button type="submit">Log In</button>
+          <button className="loginButton" type="submit">Log In</button>
         </form>
+        </div>
+        <div className="loginFooter">
+          <a href="/signup">or Sign Up</a>
       </div>
     </div>
   );
