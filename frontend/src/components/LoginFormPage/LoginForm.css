@@ -1,0 +1,23 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 20px;
+  height: 500px;
+
+}
+
+label, input {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
