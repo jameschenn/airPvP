@@ -1,5 +1,5 @@
 .container {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,10 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid black 1px;
-  border-radius: 10px;
+  /* border: solid black 1px; */
+  /* border-radius: 10px; */
   padding: 20px;
-  height: 500px;
+  /* height: 500px; */
 
 }
 
