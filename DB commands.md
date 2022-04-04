@@ -18,3 +18,7 @@ npx sequelize seed:generate --name demo-user
 npx sequelize model:generate --name Spot --attributes userId:integer,address:string,city:string,state:string,country:string,series:string,description:string,name:string,price:decimal
 
 npx sequelize seed:generate --name spots
+
+npx sequelize model:generate --name Image --attributes spotId:integer,url:string
+
+npx sequelize seed:generate --name images
