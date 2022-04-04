@@ -28,7 +28,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <h1>Test</h1>
+      {/* <Home /> */}
     </>
   );
 }

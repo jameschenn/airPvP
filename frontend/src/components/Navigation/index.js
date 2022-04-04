@@ -17,20 +17,24 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
+      <div className="header_right">
         <LoginFormModal />
         <NavLink to="/signup">Sign Up</NavLink>
         <DemoUser />
+      </div>
       </>
     );
   }
 
   return (
+      <div className="header">
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/" className="header_icon"><img className="header_icon" src="https://pluspng.com/img-png/airbnb-logo-png-is-airbnb-safe-what-the-homestay-app-does-to-make-hosts-and-guests-secure-in-their-use-780.png" alt="header_logo" /></NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>
+            </div>
   );
 }
 

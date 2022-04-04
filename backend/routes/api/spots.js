@@ -6,8 +6,9 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
   const spots = await db.Spot.findAll({
-    include: db.Images
+    include: db.Image
   });
+  // console.log('-------------------', spots);
   return res.json(spots);
 }))
 

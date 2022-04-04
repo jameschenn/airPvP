@@ -10,7 +10,7 @@ const SpotsBrowser = () => {
   const spots = useSelector(state => state.spots);
 
   const spotsData = Object.values(spots);
-  console.log('---------', spotsData)
+  console.log(spotsData);
 
   useEffect(() => {
     dispatch(loadAllSpots());
@@ -22,7 +22,11 @@ const SpotsBrowser = () => {
       <h1>Spot Listings</h1>
       <div>
         {spotsData.map((spot) => (
-          <p>${spot.name}</p>
+          <>
+          <img src={spot.Images} alt={spot.name}/>
+          <p>{spot.name}</p>
+          <p>{spot.price} /night</p>
+          </>
         ))}
       </div>
     </main>
