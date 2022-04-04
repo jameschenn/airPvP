@@ -4,6 +4,9 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import Home from './components/Home'
+import SpotsBrowser from './components/Spots'
+import './index.css'
 
 function App() {
   const dispatch = useDispatch();
@@ -20,8 +23,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/spots'>
+            <SpotsBrowser />
+          </Route>
         </Switch>
       )}
+      <h1>Test</h1>
     </>
   );
 }
