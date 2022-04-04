@@ -16,14 +16,14 @@ const SpotsBrowser = () => {
     dispatch(loadAllSpots());
   }, [dispatch]);
 
-
   return (
     <main>
       <h1>Spot Listings</h1>
       <div>
-        {spotsData.map((spot) => (
+        {spotsData?.map((spot) => (
           <>
-          <img src={spot.Images} alt={spot.name}/>
+            {spot.Images?.map(image => (<img src={image.url} alt={spot.name} />
+            ))}
           <p>{spot.name}</p>
           <p>{spot.price} /night</p>
           </>

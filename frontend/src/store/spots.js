@@ -1,4 +1,4 @@
-const LOAD = 'chairs/LOAD'
+const LOAD = 'spots/LOAD'
 
 export const load = spots => ({
   type: LOAD,
