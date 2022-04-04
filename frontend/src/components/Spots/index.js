@@ -8,9 +8,9 @@ const SpotsBrowser = () => {
   const dispatch = useDispatch();
 
   const spots = useSelector(state => state.spots);
+  console.log(spots);
 
   const spotsData = Object.values(spots);
-  console.log(spotsData);
 
   useEffect(() => {
     dispatch(loadAllSpots());
@@ -20,14 +20,19 @@ const SpotsBrowser = () => {
     <main>
       <h1>Spot Listings</h1>
       <div>
-        {spotsData?.map((spot) => (
-          <>
-            {spot.Images?.map(image => (<img src={image.url} alt={spot.name} />
-            ))}
-          <p>{spot.name}</p>
-          <p>{spot.price} /night</p>
-          </>
-        ))}
+        <div className="spot_cards">
+          {spotsData?.map((spot) => (
+            <>
+              {spot.Images?.map(image => {
+                console.log(image);
+                return <img src={image.url} alt={spot.name} className="card-img" />
+})
+              }
+              <p>{spot.name}</p>
+              <p>{spot.price} /night</p>
+            </>
+          ))}
+        </div>
       </div>
     </main>
   )

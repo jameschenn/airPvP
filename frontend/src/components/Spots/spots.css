@@ -1,3 +1,27 @@
 body {
   background-color: pink;
 }
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 25px;
+  border: 20px;
+  padding: 20px;
+  float: left;
+  background-color: black;
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  object-fit: contain;
+  height: 250px;
+  width: 250px;
+}
