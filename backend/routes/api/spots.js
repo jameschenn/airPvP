@@ -92,4 +92,31 @@ router.post('/new', asyncHandler(async(req, res) => {
   return res.json({newSpot})
 }))
 
+router.put('/:id', asyncHandler(async(req, res) => {
+
+  const { userId, address, city, state, country, series, name, description, price, img1, img2, img3, img4 } = req.body;
+
+  const id = parseInt(req.params.id, 10);
+
+  const spot = await db.Spot.findByPk(id);
+
+  const updatedSpot = await spot.update({
+    userId,
+    address,
+    city,
+    state,
+    country,
+    series,
+    name,
+    description,
+    price,
+    img1,
+    img2,
+    img3,
+    img4
+  });
+
+  return res.json(updatedSpot);
+}))
+
 module.exports = router;
