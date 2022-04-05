@@ -22,7 +22,7 @@ const CreateSpotForm = () => {
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
-
+  // console.log('test----------', sessionUser)
   useEffect(() => {
     dispatch(spotActions.loadAllSpots())
   }, [dispatch])
@@ -31,6 +31,7 @@ const CreateSpotForm = () => {
     e.preventDefault();
 
     const payload = {
+      userId: sessionUser.id,
       address,
       city,
       state,
@@ -43,12 +44,12 @@ const CreateSpotForm = () => {
       img2,
       img3,
       img4,
-      userId: sessionUser.id,
     };
 
     let createdSpot = await dispatch(spotActions.createSpot(payload));
+    let redirectId = Object.values(createdSpot)
     if(createdSpot) {
-      history.push(`/spots/${createdSpot.id}`);
+      history.push(`/spots/${redirectId[0].id}`);
     }
   }
 

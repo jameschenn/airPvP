@@ -14,7 +14,7 @@ export const addOneSpot = spot => ({
 });
 
 export const loadAllSpots = () => async dispatch => {
-  const result = await fetch('/api/spots');
+  const result = await csrfFetch('/api/spots');
 
   if(result.ok) {
     const spots = await result.json();
@@ -23,7 +23,7 @@ export const loadAllSpots = () => async dispatch => {
 }
 
 export const getOneSpot = id => async dispatch => {
-  const result = await fetch(`/api/spots/${id}`);
+  const result = await csrfFetch(`/api/spots/${id}`);
   if(result.ok) {
     const spot = await result.json();
     dispatch(load([spot]));
@@ -64,8 +64,8 @@ const spotReducer = (state = initialState, action) => {
           ...state,
           [action.spot.id]: action.spot
         };
-        const spotList = newState.list.map(id => newState[id]);
-        spotList.push(action.spot);
+        // const spotList = newState.list.map(id => newState[id]);
+        // spotList.push(action.spot);
         return newState;
       }
       return {

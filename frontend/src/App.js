@@ -28,14 +28,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path='/spots/new'>
+            <CreateSpotForm />
+          </Route>
           <Route exact path='/spots'>
             <SpotsBrowser />
           </Route>
           <Route path='/spots/:id'>
             <SingleSpot />
-          </Route>
-          <Route exact path='/spots/new'>
-            <CreateSpotForm />
           </Route>
         </Switch>
       )}

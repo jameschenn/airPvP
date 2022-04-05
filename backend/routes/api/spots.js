@@ -71,11 +71,11 @@ router.get('/:id', asyncHandler(async(req, res) => {
 }))
 
 router.post('/new', asyncHandler(async(req, res) => {
-  const {user} = req;
-  const { address, city, state, country, series, name, description, price, img1, img2, img3, img4 } = req.body;
 
-  const newSpot = await Spot.create({
-    userId: user.id,
+  const { userId ,address, city, state, country, series, name, description, price, img1, img2, img3, img4 } = req.body;
+
+  const newSpot = await db.Spot.create({
+    userId,
     address,
     city,
     state,
