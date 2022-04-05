@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: pink;
-}
+} */
 
 .card {
   display: flex;
@@ -12,7 +12,7 @@ body {
   border: 20px;
   padding: 20px;
   float: left;
-  background-color: black;
+  /* background-color: black; */
   border-radius: 18px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }

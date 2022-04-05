@@ -10,32 +10,25 @@ const SpotsBrowser = () => {
   const spots = useSelector(state => state.spots);
 
   const spotsData = Object.values(spots);
-
+  console.log(spotsData);
   useEffect(() => {
     dispatch(loadAllSpots());
   }, [dispatch]);
 
   return (
-    <main>
-      <h1>Spot Listings</h1>
-      <div>
-        <div className="spot_cards">
-          {spotsData?.map((spot) => (
-            <>
-              <a href={`/spots/${spot.id}`}>
-                {spot.Images?.map(image => {
-                  console.log(image);
-                  return <img src={image.url} alt={spot.name} className="card-img" />
-                })
-                }
-                <p>{spot.name}</p>
-                <p>{spot.price} /night</p>
-              </a>
-            </>
-          ))}
-        </div>
+    <>
+      <div className= 'card'>
+        {spotsData?.map((spot) => (
+          <>
+            <a href={`/spots/${spot.id}`}>
+            <img src={spot.img1} alt={spot.name} className="card-img"/>
+          <p>{spot.name}</p>
+          <p>{spot.price} /night</p>
+        </a>
+          </>
+        ))}
       </div>
-    </main>
+    </>
   )
 }
 

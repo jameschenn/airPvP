@@ -9,12 +9,15 @@ module.exports = (sequelize, DataTypes) => {
     series: DataTypes.STRING,
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    price: DataTypes.DECIMAL
+    price: DataTypes.DECIMAL,
+    img1: DataTypes.STRING,
+    img2: DataTypes.STRING,
+    img3: DataTypes.STRING,
+    img4: DataTypes.STRING,
   }, {});
   Spot.associate = function(models) {
     // associations can be defined here
     Spot.belongsTo(models.User, { foreignKey: 'userId' })
-    Spot.hasMany(models.Image, { foreignKey: 'spotId', onDelete: 'cascade', hooks: true });
   };
   return Spot;
 };
