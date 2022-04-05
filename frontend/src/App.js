@@ -34,7 +34,7 @@ function App() {
           <Route path='/spots/:id'>
             <SingleSpot />
           </Route>
-          <Route path='/spots/new'>
+          <Route exact path='/spots/new'>
             <CreateSpotForm />
           </Route>
         </Switch>

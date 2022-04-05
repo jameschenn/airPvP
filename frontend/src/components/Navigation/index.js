@@ -34,8 +34,7 @@ function Navigation({ isLoaded }) {
           <NavLink exact to="/" className="header_icon"><img className="header_icon" src="https://pluspng.com/img-png/airbnb-logo-png-is-airbnb-safe-what-the-homestay-app-does-to-make-hosts-and-guests-secure-in-their-use-780.png" alt="header_logo" /></NavLink>
           {isLoaded && sessionLinks}
         </li>
-        <NavLink exact to="/">Add a new Listing</NavLink>
-        <CreateSpotForm />
+        <NavLink exact to="/spots/new">Add a new Listing</NavLink>
       </ul>
     </div>
   );
