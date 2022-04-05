@@ -22,10 +22,6 @@ const CreateSpotForm = () => {
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
-  // console.log('test----------', sessionUser)
-  useEffect(() => {
-    dispatch(spotActions.loadAllSpots())
-  }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -10,7 +10,7 @@ const SpotsBrowser = () => {
   const spots = useSelector(state => state.spots);
 
   const spotsData = Object.values(spots);
-  console.log(spotsData);
+
   useEffect(() => {
     dispatch(loadAllSpots());
   }, [dispatch]);
