@@ -23,6 +23,10 @@ const CreateSpotForm = () => {
 
   const sessionUser = useSelector((state) => state.session.user);
 
+  useEffect(() => {
+    dispatch(spotActions.loadAllSpots())
+  }, [dispatch])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
