@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import SpotsBrowser from './components/Spots'
+import SingleSpot from './components/SingleSpot'
 import './index.css'
 
 function App() {
@@ -23,8 +24,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/spots'>
+          <Route exact path='/spots'>
             <SpotsBrowser />
+          </Route>
+          <Route path='/spots/:id'>
+            <SingleSpot />
           </Route>
         </Switch>
       )}

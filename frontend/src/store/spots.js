@@ -14,6 +14,14 @@ export const loadAllSpots = () => async dispatch => {
   }
 }
 
+export const getOneSpot = id => async dispatch => {
+  const result = await fetch(`/api/spots/${id}`);
+  if(result.ok) {
+    const spot = await result.json();
+    dispatch(load(spot));
+  }
+}
+
 const initialState = {
   spots: []
 };

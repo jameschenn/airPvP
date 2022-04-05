@@ -8,7 +8,6 @@ const SpotsBrowser = () => {
   const dispatch = useDispatch();
 
   const spots = useSelector(state => state.spots);
-  console.log(spots);
 
   const spotsData = Object.values(spots);
 

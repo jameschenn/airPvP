@@ -8,8 +8,16 @@ router.get('/', asyncHandler(async (req, res) => {
   const spots = await db.Spot.findAll({
     include: db.Image
   });
-  // console.log('-------------------', spots);
   return res.json(spots);
+}))
+
+router.get('/:id', asyncHandler(async(req, res) => {
+
+  const id = parseInt(req.params.id, 10);
+  const spot = await db.Spot.findByPk(id, {
+    include: db.User,
+  })
+  return res.json(spot);
 }))
 
 module.exports = router;
