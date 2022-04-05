@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import SpotsBrowser from './components/Spots'
 import SingleSpot from './components/SingleSpot'
+import CreateSpotForm from "./components/CreateSpotForm";
 import './index.css'
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
@@ -30,9 +34,11 @@ function App() {
           <Route path='/spots/:id'>
             <SingleSpot />
           </Route>
+          <Route path='/spots/new'>
+            <CreateSpotForm />
+          </Route>
         </Switch>
       )}
-      {/* <Home /> */}
     </>
   );
 }

@@ -45,6 +45,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DECIMAL(10,2)
       },
+      img1: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
+      img2: {
+        type: Sequelize.STRING(100)
+      },
+      img3: {
+        type: Sequelize.STRING(100)
+      },
+      img4: {
+        type: Sequelize.STRING(100)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

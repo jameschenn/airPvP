@@ -17,26 +17,23 @@ const SingleSpot = () => {
   }, [dispatch, id]);
 
   return (
-    <main>
-      <h1>Spot Listings</h1>
-      <div>
-        <div className="spot_cards">
-          {spotsData?.map(spot => (
-            <>
-              {spot.Images?.map(image => {
-                console.log(image);
-                return <img src={image.url} alt={spot.name} className="card-img" />
-              })
-              }
-              <p>{spot.name}</p>
-              <p>{spot.price} /night</p>
-            </>
-          ))}
-        </div>
+    <>
+      <div className='card'>
+        {spotsData?.map((spot) => (
+          <>
+            <img src={spot.img1} alt={spot.name} className="card-img" />
+            <img src={spot.img2} alt={spot.name} className="card-img" />
+            <img src={spot.img3} alt={spot.name} className="card-img" />
+            <img src={spot.img4} alt={spot.name} className="card-img" />
+      <div className="spot_description">
+          <p>{spot.name}</p>
+          <p>{spot.description}</p>
       </div>
-    </main>
+          </>
+          ))}
+      </div>
+    </>
   )
-
 }
 
 export default SingleSpot;
