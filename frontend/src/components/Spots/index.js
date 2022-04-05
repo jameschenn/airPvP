@@ -22,13 +22,15 @@ const SpotsBrowser = () => {
         <div className="spot_cards">
           {spotsData?.map((spot) => (
             <>
-              {spot.Images?.map(image => {
-                console.log(image);
-                return <img src={image.url} alt={spot.name} className="card-img" />
-})
-              }
-              <p>{spot.name}</p>
-              <p>{spot.price} /night</p>
+              <a href={`/spots/${spot.id}`}>
+                {spot.Images?.map(image => {
+                  console.log(image);
+                  return <img src={image.url} alt={spot.name} className="card-img" />
+                })
+                }
+                <p>{spot.name}</p>
+                <p>{spot.price} /night</p>
+              </a>
             </>
           ))}
         </div>

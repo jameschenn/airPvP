@@ -10,7 +10,7 @@ const SingleSpot = () => {
 
   const spots = useSelector(state => state.spots);
   const spotsData = Object.values(spots);
-  console.log('test----------', spotsData);
+  // console.log('test----------', spotsData);
 
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id))
@@ -21,11 +21,11 @@ const SingleSpot = () => {
       <h1>Spot Listings</h1>
       <div>
         <div className="spot_cards">
-          {spotsData?.map((spot) => (
+          {spotsData?.map(spot => (
             <>
-              {spot.Images?.map((image, i) => {
+              {spot.Images?.map(image => {
                 console.log(image);
-                return <img src={image.url} alt={spot.name} key={i} className="card-img" />
+                return <img src={image.url} alt={spot.name} className="card-img" />
               })
               }
               <p>{spot.name}</p>
