@@ -8,18 +8,33 @@ const SingleSpot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const spots = useSelector(state => state.chair);
-console.log(spots);
-  // const spotsData = Object.values(spots);
-  // console.log(spotsData);
+  const spots = useSelector(state => state.spots);
+  const spotsData = Object.values(spots);
+  console.log('test----------', spotsData);
+
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id))
   }, [dispatch, id]);
 
   return (
-    <div>
-      <h1>Test</h1>
-    </div>
+    <main>
+      <h1>Spot Listings</h1>
+      <div>
+        <div className="spot_cards">
+          {spotsData?.map((spot) => (
+            <>
+              {spot.Images?.map((image, i) => {
+                console.log(image);
+                return <img src={image.url} alt={spot.name} key={i} className="card-img" />
+              })
+              }
+              <p>{spot.name}</p>
+              <p>{spot.price} /night</p>
+            </>
+          ))}
+        </div>
+      </div>
+    </main>
   )
 
 }

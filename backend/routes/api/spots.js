@@ -15,7 +15,7 @@ router.get('/:id', asyncHandler(async(req, res) => {
 
   const id = parseInt(req.params.id, 10);
   const spot = await db.Spot.findByPk(id, {
-    include: db.User,
+    include: db.Image,
   })
   return res.json(spot);
 }))
