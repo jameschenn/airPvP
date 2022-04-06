@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editSpot, getOneSpot } from "../../store/spots";
+import { deleteSpot } from '../../store/spots';
+import { useParams } from "react-router";
+
 
 const EditSpotForm = ({spot, hideForm}) => {
 
   const spotData = Object.values(spot);
   const currentSpot = spotData[0]?.id;
+
+  const { id } = useParams();
 
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -20,6 +25,8 @@ const EditSpotForm = ({spot, hideForm}) => {
   const [img2, setImg2] = useState("");
   const [img3, setImg3] = useState("");
   const [img4, setImg4] = useState("");
+
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -47,17 +54,21 @@ const EditSpotForm = ({spot, hideForm}) => {
     };
 
     let editedSpot = await dispatch(editSpot(payload));
-    if(editedSpot) {
-      hideForm();
-    }
+    // if(editedSpot) {
+    //   hideForm();
+    // }
   };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    hideForm();
+    // hideForm();
+    setShow(false);
   };
 
   return (
+    <>
+    <button type='button' onClick={() => setShow(!show)}>Edit</button>
+    {show?
     <div>
       <section>
         <form className="edit_spot" onSubmit={handleSubmit}>
@@ -180,9 +191,14 @@ const EditSpotForm = ({spot, hideForm}) => {
           </label>
           <button type="submit">Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
+              <button onClick={() => {
+                dispatch(deleteSpot(id))
+                history.push('/spots')
+              }}>Delete</button>
         </form>
       </section>
-    </div>
+    </div>:null}
+    </>
   );
 };
 
