@@ -47,16 +47,16 @@ module.exports = {
       },
       img1: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(500)
       },
       img2: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(500)
       },
       img3: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(500)
       },
       img4: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(500)
       },
       createdAt: {
         allowNull: false,

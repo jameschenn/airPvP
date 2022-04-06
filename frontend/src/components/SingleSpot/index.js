@@ -26,8 +26,6 @@ const SingleSpot = () => {
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
 
-  console.log('spotsData', spotsData)
-
   return (
     <>
       <div className='card'>
