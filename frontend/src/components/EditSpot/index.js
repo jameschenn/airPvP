@@ -5,6 +5,9 @@ import { editSpot, getOneSpot } from "../../store/spots";
 
 const EditSpotForm = ({spot, hideForm}) => {
 
+  const spotData = Object.values(spot);
+  const currentSpot = spotData[0]?.id;
+
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -40,6 +43,7 @@ const EditSpotForm = ({spot, hideForm}) => {
       img2,
       img3,
       img4,
+      id: currentSpot
     };
 
     let editedSpot = await dispatch(editSpot(payload));
