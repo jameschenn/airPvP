@@ -19,12 +19,13 @@ const SingleSpot = () => {
   const spots = useSelector(state => state.spots);
   const spotsData = Object.values(spots);
 
-  console.log('DA USER-------------------', sessionUser.id)
-  console.log('DA SPOT-------------------', spotsData[0]?.User?.id);
+  // console.log('DA USER-------------------', sessionUser.id)
+  // console.log('DA SPOT-------------------', spotsData[0]?.User?.id);
 
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
+
 
   return (
     <>
@@ -45,10 +46,10 @@ const SingleSpot = () => {
           (<>
             <EditSpotForm spot={spots} hideForm={() => setShowEditForm(false)} />
             <>
-              <button onClick={() => {
+              {/* <button onClick={() => {
                 dispatch(deleteSpot(id))
                 history.push('/spots')
-              }}>Delete</button>
+              }}>Delete</button> */}
             </>
           </>
           )
