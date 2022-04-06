@@ -1,24 +1,185 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { updateSpot, getOneSpot } from "../../store/spots";
+import { editSpot, getOneSpot } from "../../store/spots";
 
-const editSpot = ({spot, hideForm}) => {
+const EditSpotForm = ({spot, hideForm}) => {
+
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
+  const [series, setSeries] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [img1, setImg1] = useState("");
+  const [img2, setImg2] = useState("");
+  const [img3, setImg3] = useState("");
+  const [img4, setImg4] = useState("");
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [address, setAddress] = useState(spot.address);
-  const [city, setCity] = useState(spot.city);
-  const [state, setState] = useState(spot.state);
-  const [country, setCountry] = useState(spot.country);
-  const [series, setSeries] = useState(spot.series);
-  const [name, setName] = useState(spot.name);
-  const [description, setDescription] = useState(spot.description);
-  const [price, setPrice] = useState(spot.price);
-  const [img1, setImg1] = useState(spot.img1);
-  const [img2, setImg2] = useState(spot.img2 || '');
-  const [img3, setImg3] = useState(spot.img3 || '');
-  const [img4, setImg4] = useState(spot.img4 || '');
+  // const sessionUser = useSelector((state) => state.session.user);
 
-}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      ...spot,
+      address,
+      city,
+      state,
+      country,
+      series,
+      name,
+      description,
+      price,
+      img1,
+      img2,
+      img3,
+      img4,
+    };
+
+    let editedSpot = await dispatch(editSpot(payload));
+    if(editedSpot) {
+      hideForm();
+    }
+  };
+
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    hideForm();
+  };
+
+  return (
+    <div>
+      <section>
+        <form className="edit_spot" onSubmit={handleSubmit}>
+          <label>
+            House Name
+            <input
+              type='text'
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Address
+            <input
+              type='text'
+              placeholder="Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            City
+            <input
+              type='text'
+              placeholder="City"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            State
+            <input
+              type='text'
+              placeholder="State"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Country
+            <input
+              type='text'
+              placeholder="Country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Series
+            <input
+              type='text'
+              placeholder="Series"
+              value={series}
+              onChange={(e) => setSeries(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Description
+            <input
+              type='text'
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Price
+            <input
+              type='number'
+              placeholder="Price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Main Image
+            <input
+              type='text'
+              placeholder="Main Image"
+              value={img1}
+              onChange={(e) => setImg1(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Additional Image
+            <input
+              type='text'
+              placeholder="Additional Image"
+              value={img2}
+              onChange={(e) => setImg2(e.target.value)}
+            />
+          </label>
+          <label>
+            Additional Image
+            <input
+              type='text'
+              placeholder="Additional Image"
+              value={img3}
+              onChange={(e) => setImg3(e.target.value)}
+            />
+          </label>
+          <label>
+            Additional Image
+            <input
+              type='text'
+              placeholder="Additional Image"
+              value={img4}
+              onChange={(e) => setImg4(e.target.value)}
+            />
+          </label>
+          <button type="submit">Submit</button>
+          <button type="button" onClick={handleCancelClick}>Cancel</button>
+        </form>
+      </section>
+    </div>
+  );
+};
+
+export default EditSpotForm;
