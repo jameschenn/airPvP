@@ -26,16 +26,21 @@ const SingleSpot = () => {
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
 
+  console.log('spotsData', spotsData)
 
   return (
     <>
       <div className='card'>
         {spotsData?.map((spot) => (
           <>
+          {/* {console.log('1', spot)} */}
+          {typeof spot === 'object' && (<>
+            {/* {console.log('passes')} */}
             <img src={spot.img1} alt={spot.name} className="card-img" />
             <img src={spot.img2} alt={spot.name} className="card-img" />
             <img src={spot.img3} alt={spot.name} className="card-img" />
             <img src={spot.img4} alt={spot.name} className="card-img" />
+          </>)}
       <div className="spot_description">
           <p>{spot.name}</p>
           <p>{spot.description}</p>

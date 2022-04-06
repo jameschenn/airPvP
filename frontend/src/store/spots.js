@@ -90,7 +90,7 @@ const spotReducer = (state = initialState, action) => {
       });
       return {
         ...allSpots,
-        ...state,
+        ...state.spot,
       };
     case ADD_ONE:
       if(!state[action.spot.id]) {
