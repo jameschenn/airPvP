@@ -119,4 +119,16 @@ router.put('/:id', asyncHandler(async(req, res) => {
   return res.json(updatedSpot);
 }))
 
+router.delete('/:id', asyncHandler(async(req, res) => {
+
+  const id = parseInt(req.params.id, 10);
+
+  const spot = await db.Spot.findByPk(id);
+
+  const deletedSpot = await spot.destroy();
+
+  return res.json(deletedSpot);
+}))
+
+
 module.exports = router;
