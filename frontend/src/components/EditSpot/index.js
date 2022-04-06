@@ -10,21 +10,23 @@ const EditSpotForm = ({spot, hideForm}) => {
 
   const spotData = Object.values(spot);
   const currentSpot = spotData[0]?.id;
+  const sessionSpot = useSelector((state) => state.spots);
 
   const { id } = useParams();
+  // console.log('Spot\'s info', sessionSpot[id]);
 
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [series, setSeries] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [img1, setImg1] = useState("");
-  const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
-  const [img4, setImg4] = useState("");
+  const [address, setAddress] = useState(sessionSpot[id].address || "");
+  const [city, setCity] = useState(sessionSpot[id].city || "");
+  const [state, setState] = useState(sessionSpot[id].state || "");
+  const [country, setCountry] = useState(sessionSpot[id].country || "");
+  const [series, setSeries] = useState(sessionSpot[id].series || "");
+  const [name, setName] = useState(sessionSpot[id].name || "");
+  const [description, setDescription] = useState(sessionSpot[id].description || "");
+  const [price, setPrice] = useState(sessionSpot[id].price || "");
+  const [img1, setImg1] = useState(sessionSpot[id].img1 || "");
+  const [img2, setImg2] = useState(sessionSpot[id].img2 || "");
+  const [img3, setImg3] = useState(sessionSpot[id].img3 || "");
+  const [img4, setImg4] = useState(sessionSpot[id].img4 || "");
 
   const [show, setShow] = useState(false);
 
