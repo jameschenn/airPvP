@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { editSpot, getOneSpot } from "../../store/spots";
 import { deleteSpot } from '../../store/spots';
 import { useParams } from "react-router";
+import './EditSpot.css';
 
 
 const EditSpotForm = ({spot, hideForm}) => {
@@ -71,7 +72,7 @@ const EditSpotForm = ({spot, hideForm}) => {
     <>
     <button type='button' onClick={() => setShow(!show)}>Edit</button>
     {show?
-    <div>
+    <div className="form_container">
       <section>
         <form className="edit_spot" onSubmit={handleSubmit}>
           <label>
@@ -194,12 +195,14 @@ const EditSpotForm = ({spot, hideForm}) => {
               required
             />
           </label>
+          <div className="form_buttons">
           <button type="submit">Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
               <button onClick={() => {
                 dispatch(deleteSpot(id))
                 history.push('/spots')
               }}>Delete</button>
+          </div>
         </form>
       </section>
     </div>:null}
