@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import * as spotActions from '../../store/spots'
 import EditSpotForm from '../EditSpot';
+import SpotReviews from '../Reviews';
 import { deleteSpot } from '../../store/spots';
 import './SingleSpot.css';
 
@@ -67,6 +68,11 @@ const SingleSpot = () => {
           ))}
           </>
         ))}
+        <div className= 'review_form'>
+          {sessionUser?.id && (
+              <SpotReviews />
+          )}
+        </div>
       </div>
       </div>
     </>
