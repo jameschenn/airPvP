@@ -50,12 +50,15 @@ module.exports = {
         type: Sequelize.STRING(500)
       },
       img2: {
+        allowNull: false,
         type: Sequelize.STRING(500)
       },
       img3: {
+        allowNull: false,
         type: Sequelize.STRING(500)
       },
       img4: {
+        allowNull: false,
         type: Sequelize.STRING(500)
       },
       createdAt: {

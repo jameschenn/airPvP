@@ -31,14 +31,10 @@ const SingleSpot = () => {
       <div className='card'>
         {spotsData?.map((spot) => (
           <>
-          {/* {console.log('1', spot)} */}
-          {typeof spot === 'object' && (<>
-            {/* {console.log('passes')} */}
             <img src={spot.img1} alt={spot.name} className="card-img" />
             <img src={spot.img2} alt={spot.name} className="card-img" />
             <img src={spot.img3} alt={spot.name} className="card-img" />
             <img src={spot.img4} alt={spot.name} className="card-img" />
-          </>)}
       <div className="spot_description">
           <p>{spot.name}</p>
           <p>{spot.description}</p>
@@ -49,10 +45,6 @@ const SingleSpot = () => {
           (<>
             <EditSpotForm spot={spots} hideForm={() => setShowEditForm(false)} />
             <>
-              {/* <button onClick={() => {
-                dispatch(deleteSpot(id))
-                history.push('/spots')
-              }}>Delete</button> */}
             </>
           </>
           )

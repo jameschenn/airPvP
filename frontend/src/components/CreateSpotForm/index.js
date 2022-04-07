@@ -18,10 +18,34 @@ const CreateSpotForm = () => {
   const [img3, setImg3] = useState("");
   const [img4, setImg4] = useState("");
 
+  const [errors, setErrors] = useState([]);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
+  //image regex
+  const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+
+  useEffect(() => {
+    const errors = [];
+
+    if (name.length > 50 || name.length < 1) errors.push('Name must be between 1 and 50 characters long');
+    if (price > 1000 || price < 100) errors.push('Please enter a valid price between $100 - $1000');
+    if (address.length > 50 || address.length < 1) errors.push('Please enter a valid address');
+    if (city.length > 50 || city.length < 1) errors.push('Please enter a valid city');
+    if (state.length > 50 || state.length < 2) errors.push('Please enter a valid state');
+    if (country.length > 50 || country.length < 2) errors.push('Please enter a valid country');
+    if (series.length > 50 || series.length < 1) errors.push('Please provide a valid series');
+    if (description.length > 1000 || description.length < 1) errors.push('Please provide a description within 1000 characters');
+    if (!(img1.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img2.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img3.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img4.match(url))) errors.push('Please enter a valid URL for your image');
+    setErrors(errors);
+
+  }, [name, price, address, city, state, country, series, description, img1, img2, img3, img4])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,6 +82,13 @@ const CreateSpotForm = () => {
     <div>
       <section>
         <form className="new_spot" onSubmit={handleSubmit}>
+          <div className='errorDiv'>
+            <ul className='errors'>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
           <label>
             House Name
             <input
@@ -139,7 +170,7 @@ const CreateSpotForm = () => {
             />
           </label>
           <label>
-            Main Image
+            Main Image (Min. 4)
             <input
               type='text'
               placeholder="Main Image"
@@ -155,6 +186,7 @@ const CreateSpotForm = () => {
               placeholder="Additional Image"
               value={img2}
               onChange={(e) => setImg2(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -164,6 +196,7 @@ const CreateSpotForm = () => {
               placeholder="Additional Image"
               value={img3}
               onChange={(e) => setImg3(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -173,6 +206,7 @@ const CreateSpotForm = () => {
               placeholder="Additional Image"
               value={img4}
               onChange={(e) => setImg4(e.target.value)}
+              required
             />
           </label>
           <button type="submit">Submit</button>

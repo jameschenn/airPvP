@@ -15,18 +15,18 @@ const EditSpotForm = ({spot, hideForm}) => {
   const { id } = useParams();
   // console.log('Spot\'s info', sessionSpot[id]);
 
-  const [address, setAddress] = useState(sessionSpot[id].address || "");
-  const [city, setCity] = useState(sessionSpot[id].city || "");
-  const [state, setState] = useState(sessionSpot[id].state || "");
-  const [country, setCountry] = useState(sessionSpot[id].country || "");
-  const [series, setSeries] = useState(sessionSpot[id].series || "");
-  const [name, setName] = useState(sessionSpot[id].name || "");
-  const [description, setDescription] = useState(sessionSpot[id].description || "");
-  const [price, setPrice] = useState(sessionSpot[id].price || "");
-  const [img1, setImg1] = useState(sessionSpot[id].img1 || "");
-  const [img2, setImg2] = useState(sessionSpot[id].img2 || "");
-  const [img3, setImg3] = useState(sessionSpot[id].img3 || "");
-  const [img4, setImg4] = useState(sessionSpot[id].img4 || "");
+  const [address, setAddress] = useState(sessionSpot[id]?.address || "");
+  const [city, setCity] = useState(sessionSpot[id]?.city || "");
+  const [state, setState] = useState(sessionSpot[id]?.state || "");
+  const [country, setCountry] = useState(sessionSpot[id]?.country || "");
+  const [series, setSeries] = useState(sessionSpot[id]?.series || "");
+  const [name, setName] = useState(sessionSpot[id]?.name || "");
+  const [description, setDescription] = useState(sessionSpot[id]?.description || "");
+  const [price, setPrice] = useState(sessionSpot[id]?.price || "");
+  const [img1, setImg1] = useState(sessionSpot[id]?.img1 || "");
+  const [img2, setImg2] = useState(sessionSpot[id]?.img2 || "");
+  const [img3, setImg3] = useState(sessionSpot[id]?.img3 || "");
+  const [img4, setImg4] = useState(sessionSpot[id]?.img4 || "");
 
   const [show, setShow] = useState(false);
 
@@ -171,6 +171,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               placeholder="Additional Image"
               value={img2}
               onChange={(e) => setImg2(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -180,6 +181,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               placeholder="Additional Image"
               value={img3}
               onChange={(e) => setImg3(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -189,6 +191,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               placeholder="Additional Image"
               value={img4}
               onChange={(e) => setImg4(e.target.value)}
+              required
             />
           </label>
           <button type="submit">Submit</button>
