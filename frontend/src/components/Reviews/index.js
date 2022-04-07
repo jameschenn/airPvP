@@ -12,15 +12,27 @@ const SpotReviews = () => {
   const sessionUser = useSelector(state => state.session.user);
   const spots = useSelector(state => state.spots);
   // console.log('DA SPOT----------', spots[id]);
-  // const spotsData = Object.values(spots);
 
   const [errors, setErrors] = useState(false);
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(1);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
+  useEffect(() => {
+    const errors = [];
+
+    if(review.length <= 0) errors.push("Please leave a review since you\'re here already");
+    if(rating > 5 || rating < 1) errors.push("Rating must be between 1 and 5");
+
+    setErrors(errors);
+  }, [review, rating])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setHasSubmitted(true);
+
+    if(errors.length > 0) return;
 
     const payload = {
       userId: sessionUser.id,
@@ -30,6 +42,7 @@ const SpotReviews = () => {
     }
 
     let createdReview = await dispatch(reviewActions.addReview(payload, spots[id].id));
+
   }
 
 
@@ -37,6 +50,9 @@ const SpotReviews = () => {
     <div>
       <section>
         <form className="new_review" onSubmit={handleSubmit}>
+          <ul>
+            {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
           <label>
             How was it? Leave A Review
             <input
@@ -46,13 +62,15 @@ const SpotReviews = () => {
               onChange={(e) => setReview(e.target.value)}
             />
           </label>
-          <select value={rating} onChange={(e) => setRating(e.target.value)}>
-            <option value="one">1</option>
-            <option value="two">2</option>
-            <option value="three">3</option>
-            <option value="four">4</option>
-            <option value="five">5</option>
-          </select>
+          <label>
+            Give it a rating between 1 through 5
+            <input
+              type='number'
+              placeholder='Leave a rating'
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+            />
+          </label>
           <button type="submit">Submit</button>
         </form>
       </section>
