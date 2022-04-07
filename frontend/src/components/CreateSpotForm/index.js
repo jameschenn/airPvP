@@ -209,7 +209,7 @@ const CreateSpotForm = () => {
               required
             />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={errors.length > 0}>Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
         </form>
       </section>

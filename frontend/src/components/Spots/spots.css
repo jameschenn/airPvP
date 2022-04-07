@@ -2,19 +2,26 @@ body {
   background-color: pink;
 }
 
-.card {
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+.spot_container {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
-  align-content: center;
-  margin: 25px;
-  border: 20px;
-  padding: 20px;
-  float: left;
-  /* background-color: black; */
-  border-radius: 18px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.spot_card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .card-img {
@@ -22,6 +29,28 @@ body {
   flex-direction: row;
   justify-content: center;
   object-fit: contain;
-  height: 250px;
-  width: 250px;
+  /* border: solid black 2px; */
+  height: 350px;
+  width: 350px;
+  padding-left: 20px;
+}
+
+.spot_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.spot_info p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.spot_price {
+  margin-left: 100px;
 }
