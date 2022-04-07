@@ -20,7 +20,7 @@ const SingleSpot = () => {
   const spotsData = Object.values(spots);
 
   // console.log('DA USER-------------------', sessionUser.id)
-  // console.log('DA SPOT-------------------', spotsData[0]?.User?.id);
+  // console.log('DA SPOT-------------------', spotsData[0].userId);
 
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id));
@@ -31,12 +31,17 @@ const SingleSpot = () => {
       <div className='card'>
         {spotsData?.map((spot) => (
           <>
-            <img src={spot.img1} alt={spot.name} className="card-img" />
-            <img src={spot.img2} alt={spot.name} className="card-img" />
-            <img src={spot.img3} alt={spot.name} className="card-img" />
-            <img src={spot.img4} alt={spot.name} className="card-img" />
+          <h1>{spot.name}</h1>
+          <h4>From the {spot.series} series!</h4>
+          <div className="individual_photos">
+            <img src={spot.img1} alt={spot.name} className="individual-img" />
+            <img src={spot.img2} alt={spot.name} className="individual-img" />
+            <img src={spot.img3} alt={spot.name} className="individual-img" />
+            <img src={spot.img4} alt={spot.name} className="individual-img" />
+          </div>
       <div className="spot_description">
-          <p>{spot.name}</p>
+        <h2>Entire location hosted by {spot?.User?.username}</h2>
+        <h3>Located at {spot.address}, {spot.city}, {spot.state}, {spot.country}</h3>
           <p>{spot.description}</p>
       </div>
           </>
