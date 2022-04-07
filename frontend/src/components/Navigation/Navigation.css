@@ -25,7 +25,13 @@
 
 .header_right {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   margin-left: 1000px;
   margin-top: 30px;
 }
+
+/* .profileButton {
+  margin-left: 2000px;
+} */

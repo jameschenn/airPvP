@@ -19,6 +19,7 @@ const CreateSpotForm = () => {
   const [img4, setImg4] = useState("");
 
   const [errors, setErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -49,6 +50,10 @@ const CreateSpotForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setHasSubmitted(true);
+
+    if(errors.length > 0) return;
 
     const payload = {
       userId: sessionUser.id,
@@ -82,9 +87,11 @@ const CreateSpotForm = () => {
     <div>
       <section>
         <form className="new_spot" onSubmit={handleSubmit}>
+
           <div className='errorDiv'>
             <ul className='errors'>
-              {errors.map((error, idx) => (
+
+              {hasSubmitted && errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul>
@@ -209,7 +216,7 @@ const CreateSpotForm = () => {
               required
             />
           </label>
-          <button type="submit" disabled={errors.length > 0}>Submit</button>
+          <button type="submit" >Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
         </form>
       </section>
