@@ -65,7 +65,7 @@ router.get('/:id', asyncHandler(async(req, res) => {
 
   const id = parseInt(req.params.id, 10);
   const spot = await db.Spot.findByPk(id, {
-    include: db.User,
+    include: [db.User, { model: db.Review, include: db.User }]
   })
   return res.json(spot);
 }))
@@ -128,6 +128,18 @@ router.delete('/:id', asyncHandler(async(req, res) => {
   const deletedSpot = await spot.destroy();
 
   return res.json(deletedSpot);
+}))
+
+router.post('/:id/reviews', asyncHandler(async(req, res) => {
+  const { userId, spotId, review, rating } = req.body;
+
+  const newReview = await db.Review.create({
+    userId,
+    spotId,
+    review,
+    rating
+  });
+  return res.json(newReview);
 }))
 
 

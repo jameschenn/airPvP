@@ -21,6 +21,7 @@ const SingleSpot = () => {
 
   // console.log('DA USER-------------------', sessionUser.id)
   // console.log('DA SPOT-------------------', spotsData[0].userId);
+  // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
 
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id));
@@ -54,6 +55,19 @@ const SingleSpot = () => {
           </>
           )
         }
+      <div className= 'spot_reviews'>
+        <h2>Reviews</h2>
+        {spotsData?.map((spot) =>(
+          <>
+          {spot?.Reviews?.map((review, idx) => (
+            <>
+              <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
+            <p>{review?.review}</p>
+            </>
+          ))}
+          </>
+        ))}
+      </div>
       </div>
     </>
   )
