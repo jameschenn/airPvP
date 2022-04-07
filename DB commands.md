@@ -22,3 +22,7 @@ npx sequelize seed:generate --name spots
 npx sequelize model:generate --name Image --attributes spotId:integer,url:string
 
 npx sequelize seed:generate --name images
+
+npx sequelize model:generate --name Review --attributes userId:integer,spotId:integer,review:string,rating:integer
+
+npx sequelize seed:generate --name reviews
