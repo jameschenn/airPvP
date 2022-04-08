@@ -142,5 +142,14 @@ router.post('/:id/reviews', asyncHandler(async(req, res) => {
   return res.json(newReview);
 }))
 
+// router.put('/:id/reviews', asyncHandler(async (req, res) => {
+//   console.log('-----THIS ROUTE HITS-------')
+//   const { userId, spotId, review, rating } = req.body;
+
+//   const id = parseInt(req.params.id, 10);
+//   console.log('id-------------------', id);
+
+// }))
+
 
 module.exports = router;
