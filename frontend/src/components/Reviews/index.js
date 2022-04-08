@@ -11,7 +11,7 @@ const SpotReviews = () => {
 
   const sessionUser = useSelector(state => state.session.user);
   const spots = useSelector(state => state.spots);
-  // console.log('DA SPOT----------', spots[id]);
+  console.log('DA SPOT----------', spots[id]);
 
   const [errors, setErrors] = useState(false);
   const [review, setReview] = useState('');
@@ -41,7 +41,7 @@ const SpotReviews = () => {
       rating,
     }
 
-    let createdReview = await dispatch(reviewActions.addReview(payload, spots[id].id));
+    let createdReview = await dispatch(reviewActions.addReview(payload, spots[id].Reviews.id));
 
   }
 
