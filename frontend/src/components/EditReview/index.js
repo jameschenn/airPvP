@@ -11,8 +11,8 @@ const EditReviewForm = ({reviews, hideForm}) => {
   const history = useHistory();
 
   const reviewData = Object.values(reviews);
-  console.log('PROP', reviews);
-  console.log('REVIEWS', reviewData);
+  // console.log('PROP', reviews);
+  // console.log('REVIEWS', reviewData);
 
   const { id } = useParams();
 
