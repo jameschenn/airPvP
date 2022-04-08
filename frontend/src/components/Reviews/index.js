@@ -11,7 +11,7 @@ const SpotReviews = () => {
 
   const sessionUser = useSelector(state => state.session.user);
   const spots = useSelector(state => state.spots);
-  console.log('DA SPOT----------', spots[id]);
+  // console.log('DA SPOT----------', spots[id]);
 
   const [errors, setErrors] = useState(false);
   const [review, setReview] = useState('');

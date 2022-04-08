@@ -6,6 +6,7 @@ import * as spotActions from '../../store/spots'
 import EditSpotForm from '../EditSpot';
 import SpotReviews from '../Reviews';
 import { deleteReview } from '../../store/reviews';
+import EditReviewForm from '../EditReview';
 import './SingleSpot.css';
 
 const SingleSpot = () => {
@@ -66,9 +67,9 @@ const SingleSpot = () => {
           <>
           {spot?.Reviews?.map((review, idx) => (
             <>
-            {console.log('review', review)}
-              <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
+            <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
+            <EditReviewForm reviews={review} />
             <button type="button" onClick={() => {
               onClick(review.id)
               }}>Delete</button>

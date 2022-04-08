@@ -12,7 +12,6 @@ const EditSpotForm = ({spot, hideForm}) => {
   const spotData = Object.values(spot);
   const currentSpot = spotData[0]?.id;
   const sessionSpot = useSelector((state) => state.spots);
-
   const { id } = useParams();
   // console.log('Spot\'s info', sessionSpot[id]);
 
