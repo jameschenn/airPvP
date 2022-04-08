@@ -19,6 +19,8 @@ const SingleSpot = () => {
   const [showDelete, setShowDelete] = useState(false);
 
   const spots = useSelector(state => state.spots);
+  const reviews = useSelector(state => state);
+  console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviews);
   const spotsData = Object.values(spots);
 
   // console.log('DA USER-------------------', sessionUser.id)
@@ -26,6 +28,7 @@ const SingleSpot = () => {
   // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
 
   useEffect(() => {
+    dispatch(spotActions.loadAllReviews(id));
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
 

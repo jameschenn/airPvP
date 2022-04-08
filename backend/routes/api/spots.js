@@ -142,6 +142,15 @@ router.post('/:id/reviews', asyncHandler(async(req, res) => {
   return res.json(newReview);
 }))
 
+router.get('/:id/reviews', asyncHandler(async (req, res) => {
+  console.log('WORKING');
+
+  const reviews = await db.Review.findAll({
+    where: { spotId: id }
+  });
+  return res.json(reviews);
+}))
+
 // router.put('/:id/reviews', asyncHandler(async (req, res) => {
 //   console.log('-----THIS ROUTE HITS-------')
 //   const { userId, spotId, review, rating } = req.body;
