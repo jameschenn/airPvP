@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import * as spotActions from '../../store/spots'
 import EditSpotForm from '../EditSpot';
 import SpotReviews from '../Reviews';
-import { deleteSpot } from '../../store/spots';
+import { deleteReview } from '../../store/reviews';
 import './SingleSpot.css';
 
 const SingleSpot = () => {
@@ -27,6 +27,10 @@ const SingleSpot = () => {
   useEffect(() => {
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
+
+  async function onClick(review) {
+    await dispatch(deleteReview(review));
+  }
 
   return (
     <>
@@ -62,8 +66,12 @@ const SingleSpot = () => {
           <>
           {spot?.Reviews?.map((review, idx) => (
             <>
+            {console.log('review', review)}
               <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
+            <button type="button" onClick={() => {
+              onClick(review.id)
+              }}>Delete</button>
             </>
           ))}
           </>
