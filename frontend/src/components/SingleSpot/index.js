@@ -18,14 +18,14 @@ const SingleSpot = () => {
 
   const [showEditForm, setShowEditForm] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-
+  const [reviewsData, setReviewsData] = useState([]);
   const spots = useSelector(state => state.spots);
   const reviews = useSelector(state => state.reviews);
 
   const spotsData = Object.values(spots);
-  const reviewsData = Object.values(reviews)
+  // const reviewsData = Object.values(reviews)
   console.log('1111111111111111111111', spotsData);
-  console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviewsData);
+  // console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviewsData);
   // console.log('DA USER-------------------', sessionUser.id)
   // console.log('DA SPOT-------------------', spotsData[0].userId);
   // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
@@ -35,6 +35,10 @@ const SingleSpot = () => {
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+  setReviewsData(Object.values(reviews));
+
+  }, [reviews])
   async function onClick(review) {
     await dispatch(deleteReview(review));
   }

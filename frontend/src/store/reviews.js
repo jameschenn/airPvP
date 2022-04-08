@@ -85,9 +85,7 @@ const reviewsReducer = (state = initialState, action) => {
     case LOAD_REVIEWS:
       const allReviews = {};
       action.review.forEach(review => {
-        console.log('WHAT ARE YOU?!', review)
         allReviews[review.id] = review
-        console.log('AFTER', allReviews);
       });
       return {
         ...allReviews,
@@ -114,8 +112,9 @@ const reviewsReducer = (state = initialState, action) => {
           [action.review.id]: action.review
         }
       case REMOVE_REVIEW:
+        console.log('YOU HIT ME')
         const newState = { ...state };
-        delete newState[action.id];
+        delete newState[action.reviewId];
         return newState;
       default:
         return state;
