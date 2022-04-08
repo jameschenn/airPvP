@@ -109,17 +109,17 @@ const spotReducer = (state = initialState, action) => {
         ...allSpots,
         ...state.spot,
       };
-    case LOAD_REVIEWS:
-      const allReviews = {};
-      action.review.forEach(review => {
-        console.log('WHAT ARE YOU?!', review)
-        allReviews[review.id] = review
-        console.log('AFTER', allReviews);
-      });
-      return {
-        ...allReviews,
-        ...state.review,
-      }
+    // case LOAD_REVIEWS:
+    //   const allReviews = {};
+    //   action.review.forEach(review => {
+    //     console.log('WHAT ARE YOU?!', review)
+    //     allReviews[review.id] = review
+    //     console.log('AFTER', allReviews);
+    //   });
+    //   return {
+    //     ...allReviews,
+    //     ...state.review,
+    //   }
     case ADD_ONE:
       if(!state[action.spot.id]) {
         const newState = {

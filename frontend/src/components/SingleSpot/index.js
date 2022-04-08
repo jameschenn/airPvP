@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import * as spotActions from '../../store/spots'
+import * as reviewActions from '../../store/reviews'
 import EditSpotForm from '../EditSpot';
 import SpotReviews from '../Reviews';
 import { deleteReview } from '../../store/reviews';
@@ -28,7 +29,7 @@ const SingleSpot = () => {
   // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
 
   useEffect(() => {
-    dispatch(spotActions.loadAllReviews(id));
+    dispatch(reviewActions.loadAllReviews(id));
     dispatch(spotActions.getOneSpot(id));
   }, [dispatch, id]);
 
