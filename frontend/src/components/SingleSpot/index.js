@@ -20,10 +20,12 @@ const SingleSpot = () => {
   const [showDelete, setShowDelete] = useState(false);
 
   const spots = useSelector(state => state.spots);
-  const reviews = useSelector(state => state);
-  console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviews);
-  const spotsData = Object.values(spots);
+  const reviews = useSelector(state => state.reviews);
 
+  const spotsData = Object.values(spots);
+  const reviewsData = Object.values(reviews)
+  console.log('1111111111111111111111', spotsData);
+  console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviewsData);
   // console.log('DA USER-------------------', sessionUser.id)
   // console.log('DA SPOT-------------------', spotsData[0].userId);
   // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
@@ -67,18 +69,14 @@ const SingleSpot = () => {
         }
       <div className= 'spot_reviews'>
         <h2>Reviews</h2>
-        {spotsData?.map((spot) =>(
+        {reviewsData?.map((review) => (
           <>
-          {spot?.Reviews?.map((review, idx) => (
-            <>
             <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
             <EditReviewForm reviews={review} />
             <button type="button" onClick={() => {
               onClick(review.id)
-              }}>Delete</button>
-            </>
-          ))}
+            }}>Delete</button>
           </>
         ))}
         <div className= 'review_form'>
@@ -93,3 +91,21 @@ const SingleSpot = () => {
 }
 
 export default SingleSpot;
+
+
+// {
+//   spotsData?.map((spot) => (
+//     <>
+//       {spot?.Reviews?.map((review, idx) => (
+//         <>
+//           <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
+//           <p>{review?.review}</p>
+//           <EditReviewForm reviews={review} />
+//           <button type="button" onClick={() => {
+//             onClick(review.id)
+//           }}>Delete</button>
+//         </>
+//       ))}
+//     </>
+//   ))
+// }

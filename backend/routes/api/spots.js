@@ -145,6 +145,9 @@ router.post('/:id/reviews', asyncHandler(async(req, res) => {
 router.get('/:id/reviews', asyncHandler(async (req, res) => {
   console.log('WORKING');
 
+  const id = parseInt(req.params.id, 10);
+
+  console.log('IDDDDDD', id);
   const reviews = await db.Review.findAll({
     where: { spotId: id }
   });

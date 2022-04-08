@@ -66,11 +66,12 @@ export const editReview = payload => async dispatch => {
 }
 
 export const loadAllReviews = spotId => async dispatch => {
-  console.log('HITS');
+  console.log('HITS1');
   const result = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
   if (result.ok) {
     const reviews = await result.json();
+    console.log('HITS2--------------', reviews)
     dispatch(loadReviews(reviews))
   }
 }
