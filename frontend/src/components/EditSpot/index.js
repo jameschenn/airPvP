@@ -29,15 +29,42 @@ const EditSpotForm = ({spot, hideForm}) => {
   const [img3, setImg3] = useState(sessionSpot[id]?.img3 || "");
   const [img4, setImg4] = useState(sessionSpot[id]?.img4 || "");
 
+  const [errors, setErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   // const sessionUser = useSelector((state) => state.session.user);
+  const url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+
+  useEffect(() => {
+    const errors = [];
+
+    if (name.length > 50 || name.length < 1) errors.push('Name must be between 1 and 50 characters long');
+    if (price > 1000 || price < 100) errors.push('Please enter a valid price between $100 - $1000');
+    if (address.length > 50 || address.length < 1) errors.push('Please enter a valid address');
+    if (city.length > 50 || city.length < 1) errors.push('Please enter a valid city');
+    if (state.length > 50 || state.length < 2) errors.push('Please enter a valid state');
+    if (country.length > 50 || country.length < 2) errors.push('Please enter a valid country');
+    if (series.length > 50 || series.length < 1) errors.push('Please provide a valid series');
+    if (description.length > 1000 || description.length < 1) errors.push('Please provide a description within 1000 characters');
+    if (!(img1.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img2.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img3.match(url))) errors.push('Please enter a valid URL for your image');
+    if (!(img4.match(url))) errors.push('Please enter a valid URL for your image');
+    setErrors(errors);
+
+  }, [name, price, address, city, state, country, series, description, img1, img2, img3, img4])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setHasSubmitted(true);
+
+    if(errors.length > 0) return;
 
     const payload = {
       ...spot,
@@ -75,6 +102,16 @@ const EditSpotForm = ({spot, hideForm}) => {
     <div className="form_container">
       <section>
         <form className="edit_spot" onSubmit={handleSubmit}>
+
+              <div className='errorDiv'>
+                <ul className='errors'>
+
+                  {hasSubmitted && errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+
           <label>
             House Name
             <input
