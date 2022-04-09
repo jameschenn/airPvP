@@ -11,8 +11,6 @@ const EditReviewForm = ({reviews, hideForm}) => {
   const history = useHistory();
 
   const reviewData = Object.values(reviews);
-  // console.log('PROP', reviews);
-  // console.log('REVIEWS', reviewData);
 
   const { id } = useParams();
 
@@ -45,14 +43,8 @@ const EditReviewForm = ({reviews, hideForm}) => {
       spotId: reviews?.spotId,
       userId: reviews?.userId
     }
-    console.log('PAYLOAD', payload);
     let editedReview = await dispatch(editReview(payload));
-    console.log('editedReview', editedReview)
-    if(editedReview) {
-      console.log('IT WORKED', editedReview);
-    } else {
-      console.log('IT DID NOT WORK');
-    }
+
   }
 
   const handleCancelClick = (e) => {

@@ -4,7 +4,6 @@ const LOAD = 'spots/LOAD'
 const ADD_ONE = 'spots/ADD_ONE'
 const UPDATE_ONE = 'spots/UPDATE_ONE'
 const REMOVE_ONE = 'spots/REMOVE_ONE'
-const LOAD_REVIEWS = 'spots/LOAD_REVIEWS'
 
 export const load = spots => ({
   type: LOAD,
@@ -25,11 +24,6 @@ export const removeOneSpot = spotId => ({
   type: REMOVE_ONE,
   spotId
 });
-
-export const loadReviews = review => ({
-  type: LOAD_REVIEWS,
-  review
-})
 
 export const loadAllSpots = () => async dispatch => {
   const result = await csrfFetch('/api/spots');
@@ -83,16 +77,6 @@ export const deleteSpot = spotId => async dispatch => {
   }
 };
 
-export const loadAllReviews = spotId => async dispatch => {
-  console.log('HITS');
-  const result = await csrfFetch(`/api/spots/${spotId}/reviews`);
-
-  if (result.ok) {
-    const reviews = await result.json();
-    dispatch(loadReviews(reviews))
-  }
-}
-
 const initialState = {
   spots: []
 };
@@ -109,25 +93,12 @@ const spotReducer = (state = initialState, action) => {
         ...allSpots,
         ...state.spot,
       };
-    // case LOAD_REVIEWS:
-    //   const allReviews = {};
-    //   action.review.forEach(review => {
-    //     console.log('WHAT ARE YOU?!', review)
-    //     allReviews[review.id] = review
-    //     console.log('AFTER', allReviews);
-    //   });
-    //   return {
-    //     ...allReviews,
-    //     ...state.review,
-    //   }
     case ADD_ONE:
       if(!state[action.spot.id]) {
         const newState = {
           ...state,
           [action.spot.id]: action.spot
         };
-        // const spotList = newState.list.map(id => newState[id]);
-        // spotList.push(action.spot);
         return newState;
       }
       return {

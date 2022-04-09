@@ -6,55 +6,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
-// const validateSpot = [
-//   check('name')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid name')
-//     .isLength({ max: 50 })
-//     .withMessage('50 character limit'),
-//   check('price')
-//     .isInt({ min: 100, max: 1000 })
-//     .withMessage('Please provide a value between $100 to $1000')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid price'),
-//   check('address')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid address')
-//     .isLength({ max: 50 })
-//     .withMessage('50 character limit'),
-//   check('city')
-//     .isLength({ max: 50 })
-//     .withMessage('50 character limit')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid city'),
-//   check('state')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid state')
-//     .isString()
-//     .withMessage('Please provide a valid state'),
-//   check('country')
-//     .isLength({ max: 50 })
-//     .withMessage('50 character limit')
-//     .isLength({ min: 2 })
-//     .withMessage('2 character min'),
-//   check('series')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid series')
-//     .isLength({ max: 50 })
-//     .withMessage('50 character limit'),
-//   check('description')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid description')
-//     .isLength({ max: 1000 })
-//     .withMessage('1000 character limit'),
-//   check('img1')
-//     .exists({ checkFalsy: true })
-//     .withMessage('Please provide a valid photo')
-//     .isURL()
-//     .withMessage('Please provide a valid photo'),
-//   handleValidationErrors
-// ];
-
 router.get('/', asyncHandler(async (req, res) => {
   const spots = await db.Spot.findAll({
   });
@@ -153,15 +104,5 @@ router.get('/:id/reviews', asyncHandler(async (req, res) => {
   });
   return res.json(reviews);
 }))
-
-// router.put('/:id/reviews', asyncHandler(async (req, res) => {
-//   console.log('-----THIS ROUTE HITS-------')
-//   const { userId, spotId, review, rating } = req.body;
-
-//   const id = parseInt(req.params.id, 10);
-//   console.log('id-------------------', id);
-
-// }))
-
 
 module.exports = router;

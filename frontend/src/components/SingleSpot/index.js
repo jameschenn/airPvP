@@ -23,12 +23,6 @@ const SingleSpot = () => {
   const reviews = useSelector(state => state.reviews);
 
   const spotsData = Object.values(spots);
-  // const reviewsData = Object.values(reviews)
-  console.log('1111111111111111111111', spotsData);
-  // console.log('HIIIIIIIIIIIIIIIIIIIIIIII', reviewsData);
-  // console.log('DA USER-------------------', sessionUser.id)
-  // console.log('DA SPOT-------------------', spotsData[0].userId);
-  // console.log('DA REVIEWS-------------------', spotsData[0].Reviews[0]);
 
   useEffect(() => {
     dispatch(reviewActions.loadAllReviews(id));
@@ -95,21 +89,3 @@ const SingleSpot = () => {
 }
 
 export default SingleSpot;
-
-
-// {
-//   spotsData?.map((spot) => (
-//     <>
-//       {spot?.Reviews?.map((review, idx) => (
-//         <>
-//           <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
-//           <p>{review?.review}</p>
-//           <EditReviewForm reviews={review} />
-//           <button type="button" onClick={() => {
-//             onClick(review.id)
-//           }}>Delete</button>
-//         </>
-//       ))}
-//     </>
-//   ))
-// }
