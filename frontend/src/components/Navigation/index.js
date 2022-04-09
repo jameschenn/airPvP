@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import DemoUser from '../DemoUser';
 import CreateSpotForm from '../CreateSpotForm';
+import logo from '../../images/logo.png'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -20,7 +21,7 @@ function Navigation({ isLoaded }) {
       <>
       <div className="header_right">
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup"><button className ='signup_button'>Sign Up</button></NavLink>
         <DemoUser />
       </div>
       </>
@@ -31,11 +32,11 @@ function Navigation({ isLoaded }) {
     <div className="header">
       <ul>
         <li>
-          <NavLink exact to="/" className="header_icon"><img className="header_icon" src="https://pluspng.com/img-png/airbnb-logo-png-is-airbnb-safe-what-the-homestay-app-does-to-make-hosts-and-guests-secure-in-their-use-780.png" alt="header_logo" /></NavLink>
+          <NavLink exact to="/" className="header_icon"><img className="header_icon" src={logo} alt="header_logo" /></NavLink>
           {isLoaded && sessionLinks}
         </li>
-        <NavLink exact to="/spots/new">Add a new Listing</NavLink>
       </ul>
+        <NavLink exact to="/spots/new" className="add_listing">Add a new Listing</NavLink>
     </div>
   );
 }

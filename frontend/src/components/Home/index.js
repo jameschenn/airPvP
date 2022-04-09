@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as spotActions from '../../store/spots'
 import Banner from './Banner'
 import './Home.css'
 
 
 function Home() {
+
   return (
     <div className='home'>
-      <h1>Home component</h1>
       <Banner />
     </div>
   )

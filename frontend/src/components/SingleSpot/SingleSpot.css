@@ -50,3 +50,12 @@ p {
 button {
   margin-left: 20px;
 }
+
+.add_listing {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 25px;
+}

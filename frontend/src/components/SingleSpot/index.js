@@ -51,7 +51,7 @@ const SingleSpot = () => {
             <img src={spot.img4} alt={spot.name} className="individual-img" />
           </div>
       <div className="spot_description">
-        <h2>Entire location hosted by {spot?.User?.username} at {spot.price} /night</h2>
+        <h2>Entire location hosted by {spot?.User?.username} at {spot.price} / night</h2>
         <h3>Located at {spot.address}, {spot.city}, {spot.state}, {spot.country}</h3>
           <p>{spot.description}</p>
       </div>

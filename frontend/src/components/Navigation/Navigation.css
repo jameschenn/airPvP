@@ -18,20 +18,43 @@
   display: flex;
   justify-content: center;
   object-fit: contain;
-  height: 25px;
+  height: 60px;
   margin-left: 2px;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .header_right {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-left: 1000px;
-  margin-top: 30px;
+  justify-self: flex-end;
+  /* margin-left: 1000px;
+  margin-top: 30px; */
 }
 
-/* .profileButton {
-  margin-left: 2000px;
-} */
+.header_right button {
+  height: 30px;
+  background-color:pink;
+  border: 1px solid palevioletred;
+}
+
+.signup_button {
+  margin-left: 50px;
+}
+.profileButton {
+  background-color: pink;
+  border: solid palevioletred 1px;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 20px;
+}
+
+.profile-dropdown {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-dropdown li {
+  margin-left: 20px;
+}

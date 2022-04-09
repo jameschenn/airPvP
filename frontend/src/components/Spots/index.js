@@ -28,7 +28,7 @@ const SpotsBrowser = () => {
                     <p>{spot.name}</p>
                   </div>
                   <div className="spot_price">
-                    <p>{spot.price} /night</p>
+                    <p>{spot.price} / night</p>
                   </div>
               </div>
           </a>
