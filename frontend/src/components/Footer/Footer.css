@@ -1,0 +1,15 @@
+.footer-div {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: white;
+  height: 50px;
+  font-size: 15px;
+}
+
+.footer-div a {
+  margin-left: 5px;
+  margin-right: 5px;
+}
