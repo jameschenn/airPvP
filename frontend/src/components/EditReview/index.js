@@ -14,7 +14,7 @@ const EditReviewForm = ({reviews, hideForm}) => {
 
   const { id } = useParams();
 
-  const [errors, setErrors] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [review, setReview] = useState(reviews?.review || '');
   const [rating, setRating] = useState(reviews?.rating || 1);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -44,7 +44,9 @@ const EditReviewForm = ({reviews, hideForm}) => {
       userId: reviews?.userId
     }
     let editedReview = await dispatch(editReview(payload));
-
+    if(editedReview) {
+      setShow(false);
+    }
   }
 
   const handleCancelClick = (e) => {
