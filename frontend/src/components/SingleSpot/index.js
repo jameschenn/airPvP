@@ -71,10 +71,15 @@ const SingleSpot = () => {
           <>
             <p>This location was rated <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
+            {console.log('REVIEW', review?.userId)}
+            {sessionUser?.id === review?.userId && (
+            <>
             <EditReviewForm reviews={review} />
             <button type="button" onClick={() => {
               onClick(review.id)
             }}>Delete</button>
+            </>
+            )}
           </>
         ))}
         <div className= 'review_form'>
