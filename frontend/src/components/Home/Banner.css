@@ -1,11 +1,30 @@
 .banner {
   position: relative;
-  height: 50vh;
+  height: 70vh;
   background-color: purple;
-  background: url("https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_w=1200") center center;
-  margin-bottom: 200px;
+  background: url("https://res.cloudinary.com/jameschenn/image/upload/v1649668443/airPvP/splash_banner_lah6df.png?im_w=1200") center center;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .banner_info {
   color: white;
+  text-align: center;
+}
+
+.banner_button {
+  margin-top: 340px;
+  height: 40px;
+  width: 100px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 30px;
+}
+
+.banner_button a {
+  color: white;
+}
+
+.banner_button:hover a {
+  font-weight: bold;
 }

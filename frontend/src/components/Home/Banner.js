@@ -6,7 +6,7 @@ function Banner() {
   return (
     <div className='banner'>
       <div className='banner_info'>
-        <h1>I'm the banner img :D</h1>
+        <h1>Welcome to AirPvP</h1>
         <button className="banner_button"><a href="/spots">I'm Flexible</a></button>
       </div>
 

@@ -69,7 +69,7 @@ const SingleSpot = () => {
         <h2>Reviews</h2>
         {reviewsData?.map((review) => (
           <>
-            <p><span style={{ fontWeight: "bold" }}>{review?.username?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
+            <p>This location was rated <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
             <EditReviewForm reviews={review} />
             <button type="button" onClick={() => {
