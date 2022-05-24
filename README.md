@@ -3,7 +3,7 @@ This is AirPvP, an [AirBnB](https://www.airbnb.com/) clone. </br></br>
 In the gaming world, PvP stands for Player vs Player. AirPvP is the place to go for players to rent locations from various video game worlds to go and duke it out!!
 
 # Live Site
-[AirPvP](https://airpvp.herokuapp.com/);
+[AirPvP](https://airpvp.herokuapp.com/)
 
 # Index
 | [Backend Routes](https://github.com/jameschenn/airPvP/wiki/Backend-Routes) | [Database Schema](https://github.com/jameschenn/airPvP/wiki/Database-Schema) | [Features](https://github.com/jameschenn/airPvP/wiki/Features) | [Frontend Routes](https://github.com/jameschenn/airPvP/wiki/Frontend-Routes) | 
