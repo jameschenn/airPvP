@@ -11,6 +11,19 @@ router.get('/:id', asyncHandler(async(req, res) => {
     where: { userId: id }
   });
   return res.json(bookings);
+}));
+
+router.post('/', asyncHandler(async(req, res) => {
+  const { spotId, userId, startDate, endDate } = req.body;
+
+  const booking = await db.Booking.create({
+    spotId,
+    userId,
+    startDate,
+    endDate
+  });
+
+  return res.json(booking);
 }))
 
 router.delete('/:id', asyncHandler(async(req, res) => {
