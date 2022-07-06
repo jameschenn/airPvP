@@ -6,20 +6,20 @@ li {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-evenly;
-
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .booking_card {
   background-color: snow;
-
+  height: 420px;
   width: 400px;
   margin-top: 15px;
   padding: 1%;
   text-align: center;
   display: flex;
   flex-direction: column;
-
+  border-radius: 20px;
 }
 
 .booking_img img {
@@ -34,5 +34,21 @@ li {
 
 .booking_img {
   margin: 15px;
+}
 
+.cancel_booking {
+  /* display: flex;
+  justify-content: center; */
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1540px) {
+  .booking_card {
+    height: 380px;
+    width: 320px;
+  }
+  .booking_img img {
+    height: 250px;
+    width: 250px;
+  }
 }

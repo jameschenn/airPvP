@@ -31,13 +31,13 @@ const Bookings = () => {
             <img src={booking?.Spot?.img1} alt={booking?.Spot?.name} />
           </div>
           <div>
-            {booking?.Spot?.name}
+              <span style={{fontWeight: 'bold'}}>{booking?.Spot?.name}</span>
             <br / >
             {moment(booking?.startDate).utc().format('MMMM Do YYYY')}
               &nbsp; to &nbsp;
             {moment(booking?.endDate).utc().format('MMMM Do YYYY')}
           </div>
-          <div>
+          <div className='cancel_booking'>
             <button type='button' onClick={() => {
               dispatch(bookingActions.removeBooking(booking.id))
             }}>Cancel Booking?</button>
