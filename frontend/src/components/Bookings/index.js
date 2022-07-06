@@ -21,9 +21,11 @@ const Bookings = () => {
 
   return (
     <>
+  <div className='booking_container'>
     {bookingsData.map(booking => (
       <ul>
         <li>
+
         <div className='booking_card'>
           <div className='booking_img'>
             <img src={booking?.Spot?.img1} alt={booking?.Spot?.name} />
@@ -39,11 +41,12 @@ const Bookings = () => {
             <button type='button' onClick={() => {
               dispatch(bookingActions.removeBooking(booking.id))
             }}>Cancel Booking?</button>
+            </div>
           </div>
-        </div>
         </li>
       </ul>
     ))}
+  </div>
     </>
   )
 

@@ -2,11 +2,20 @@ li {
   list-style-type: none;
 }
 
+.booking_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+
+}
+
 .booking_card {
-  /* background-color: aqua; */
+  background-color: snow;
 
   width: 400px;
   margin-top: 15px;
+  padding: 1%;
   text-align: center;
   display: flex;
   flex-direction: column;
