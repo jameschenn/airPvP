@@ -37,6 +37,7 @@ function Navigation({ isLoaded }) {
         </li>
       </ul>
         <NavLink exact to="/spots/new" className="add_listing">Add a new Listing</NavLink>
+      <NavLink exact to="/bookings" className="add_listing">Check Bookings</NavLink>
     </div>
   );
 }
