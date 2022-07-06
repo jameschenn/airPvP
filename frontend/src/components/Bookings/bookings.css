@@ -1,0 +1,29 @@
+li {
+  list-style-type: none;
+}
+
+.booking_card {
+  /* background-color: aqua; */
+
+  width: 400px;
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.booking_img img {
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit:cover;
+  vertical-align: bottom;
+}
+
+.booking_img {
+  margin: 15px;
+
+}

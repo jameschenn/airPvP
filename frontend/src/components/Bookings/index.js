@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import moment from 'moment';
 import * as bookingActions from '../../store/bookings'
+import './bookings.css'
 
 const Bookings = () => {
 
@@ -23,8 +24,8 @@ const Bookings = () => {
     {bookingsData.map(booking => (
       <ul>
         <li>
-        <div>
-          <div>
+        <div className='booking_card'>
+          <div className='booking_img'>
             <img src={booking?.Spot?.img1} alt={booking?.Spot?.name} />
           </div>
           <div>
