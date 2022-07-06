@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import SpotsBrowser from './components/Spots'
 import SingleSpot from './components/SingleSpot'
 import CreateSpotForm from "./components/CreateSpotForm";
+import Bookings from "./components/Bookings";
 import './index.css'
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path='/spots/:id'>
             <SingleSpot />
+          </Route>
+          <Route path='/bookings'>
+            <Bookings />
           </Route>
         </Switch>
       )}

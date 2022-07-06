@@ -8,6 +8,7 @@ import EditSpotForm from '../EditSpot';
 import SpotReviews from '../Reviews';
 import { deleteReview } from '../../store/reviews';
 import EditReviewForm from '../EditReview';
+import BookingForm from '../BookingForm';
 import './SingleSpot.css';
 
 const SingleSpot = () => {
@@ -65,6 +66,17 @@ const SingleSpot = () => {
           </>
           )
         }
+
+      <div className='booking'>
+        <BookingForm spot={spots} />
+      </div>
+
+
+
+
+
+
+
       <div className= 'spot_reviews'>
         <h2>Reviews</h2>
         {reviewsData?.map((review) => (
