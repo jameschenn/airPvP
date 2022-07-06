@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import moment from 'moment';
-import * as bookingActions from '../../store/bookings'
+import * as bookingActions from '../../store/bookings';
 import './bookings.css'
 
 const Bookings = () => {
@@ -34,6 +34,11 @@ const Bookings = () => {
             {moment(booking?.startDate).utc().format('MMMM Do YYYY')}
               &nbsp; to &nbsp;
             {moment(booking?.endDate).utc().format('MMMM Do YYYY')}
+          </div>
+          <div>
+            <button type='button' onClick={() => {
+              dispatch(bookingActions.removeBooking(booking.id))
+            }}>Cancel Booking?</button>
           </div>
         </div>
         </li>
