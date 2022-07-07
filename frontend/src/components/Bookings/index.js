@@ -31,47 +31,47 @@ const Bookings = () => {
 
   return (
     <>
-    {loading ? (
+      {loading ? (
         <div className="loading">
           <ClipLoader color={'#ffd1dc'} loading={loading} size={150} />
         </div>
 
-    ): (
-      <>
+      ) : (
+        <>
 
-      {bookingsData.length > 0 ? (
+          {bookingsData.length > 0 ? (
 
-        <div className='booking_container'>
-        {bookingsData.map(booking => (
-          <ul>
-        <li>
+            <div className='booking_container'>
+              {bookingsData.map(booking => (
+                <ul>
+                  <li>
 
-        <div className='booking_card'>
-          <div className='booking_img'>
-            <a href={`/spots/${booking.id}`}><img src={booking?.Spot?.img1} alt={booking?.Spot?.name} /></a>
-          </div>
-          <div>
-              <span style={{fontWeight: 'bold'}}>{booking?.Spot?.name}</span>
-            <br / >
-            {moment(booking?.startDate).utc().format('MMMM Do YYYY')}
-              &nbsp;to&nbsp;
-            {moment(booking?.endDate).utc().format('MMMM Do YYYY')}
-          </div>
-          <div className='cancel_booking'>
-            <button type='button' onClick={() => {
-              dispatch(bookingActions.removeBooking(booking.id))
-            }}>Cancel Booking?</button>
+                    <div className='booking_card'>
+                      <div className='booking_img'>
+                        <a href={`/spots/${booking.id}`}><img src={booking?.Spot?.img1} alt={booking?.Spot?.name} /></a>
+                      </div>
+                      <div>
+                        <span style={{ fontWeight: 'bold' }}>{booking?.Spot?.name}</span>
+                        <br />
+                        {moment(booking?.startDate).utc().format('MMMM Do YYYY')}
+                        &nbsp;to&nbsp;
+                        {moment(booking?.endDate).utc().format('MMMM Do YYYY')}
+                      </div>
+                      <div className='cancel_booking'>
+                        <button type='button' onClick={() => {
+                          dispatch(bookingActions.removeBooking(booking.id))
+                        }}>Cancel Booking?</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              ))}
             </div>
-          </div>
-        </li>
-      </ul>
-    ))}
-  </div>
-  ) : (
-    <h1 style={{textAlign:'center', marginTop: '250px'}}>Nothing booked yet. <br/> Take a look at one of our <a href={`/spots`}>VENUES</a></h1>
-    )}
-    </>
-    )}
+          ) : (
+            <h1 style={{ textAlign: 'center', marginTop: '250px' }}>Nothing booked yet. <br /> Take a look at one of our <a href={`/spots`}>VENUES</a></h1>
+          )}
+        </>
+      )}
     </>
   )
 

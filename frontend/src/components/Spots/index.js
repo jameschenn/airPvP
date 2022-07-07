@@ -18,23 +18,24 @@ const SpotsBrowser = () => {
   return (
     <>
       <div className='spot_container'>
-        <div className='spot_card'>
-          {spotsData?.map((spot) => (
-            <>
-              <a href={`/spots/${spot.id}`}>
-              <img src={spot.img1} alt={spot.name} className="card-img"/>
-                <div className='spot_info'>
-                  <div className="spot_name">
-                    <p>{spot.name}</p>
-                  </div>
-                  <div className="spot_price">
-                    <p>{spot.price} / night</p>
-                  </div>
+        {spotsData?.map((spot) => (
+          <ul>
+            <li>
+
+              <div className='spot_card'>
+                <div className='booking_img'>
+                  <a href={`/spots/${spot.id}`}><img src={spot.img1} alt={spot.name} className="card-img" /></a>
+                </div>
+                    <div className='spot_info'>
+                      <p style={{fontWeight:'bold'}}>{spot?.name}</p>
+                      <p>{spot?.series}</p>
+                  <p><span style={{fontWeight:'bold'}}>{spot?.price}</span> / night</p>
+                    </div>
+
               </div>
-          </a>
-            </>
-          ))}
-        </div>
+            </li>
+          </ul>
+        ))}
       </div>
     </>
   )

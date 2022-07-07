@@ -41,11 +41,11 @@ h4 {
   padding-right: 10px;
 }
 
-p {
+/* p {
   margin-top: 20px;
   margin-left: 25px;
   margin-bottom: 20px;
-}
+} */
 
 button {
   margin-left: 20px;
@@ -59,4 +59,16 @@ button {
   align-items: flex-end;
   margin-right: 25px;
   margin-bottom: 5px;
+}
+
+.spot_reviews p {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.spot_description p {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
 }

@@ -13,44 +13,57 @@ a:hover {
 
 .spot_container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .spot_card {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-grow: 1;
+    background-color: snow;
+    border: solid 1px lightgrey;
+    height: 420px;
+    width: 400px;
+    margin-top: 15px;
+    padding: 1%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.card-img img {
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
 }
 
 .card-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  object-fit: contain;
-  /* border: solid black 2px; */
-  height: 350px;
-  width: 350px;
-  padding-left: 20px;
+  margin: 5px;
 }
 
 .spot_info {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .spot_info p {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-decoration: none;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-weight: bold;
+  margin-top: 5px;
 }
 
-.spot_price {
-  margin-left: 100px;
+@media screen and (max-width: 1540px) {
+  .spot_card {
+    height: 380px;
+    width: 320px;
+  }
+
+  .spot_img img {
+    height: 250px;
+    width: 250px;
+  }
 }
