@@ -99,10 +99,8 @@ const SingleSpot = () => {
           </>
         ))}
 
-
-
       <div className= 'spot_reviews'>
-        <h2>Reviews</h2>
+        <h2>{reviewsData?.length} Reviews</h2>
         {reviewsData?.map((review) => (
           <>
             <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
@@ -110,10 +108,12 @@ const SingleSpot = () => {
             {console.log('REVIEW', review)}
             {sessionUser?.id === review?.userId && (
             <>
+            <div style={{marginLeft:'30px'}}>
             <EditReviewForm reviews={review} />
-            <button type="button" onClick={() => {
+            <button type="button" style={{marginLeft:'15px'}} onClick={() => {
               onClick(review.id)
             }}>Delete</button>
+            </div>
             </>
             )}
           </>
