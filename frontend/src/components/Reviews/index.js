@@ -45,6 +45,7 @@ const SpotReviews = () => {
     if(createdReview) {
       setReview('');
       setRating('');
+      setHasSubmitted(false);
     }
   }
 
