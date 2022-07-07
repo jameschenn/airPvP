@@ -42,6 +42,11 @@ a:hover {
   vertical-align: bottom;
 }
 
+.card-img:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
 .card-img {
   margin: 5px;
 }

@@ -37,6 +37,11 @@ li {
   margin: 15px;
 }
 
+.booking_img:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
 .cancel_booking {
   /* display: flex;
   justify-content: center; */
