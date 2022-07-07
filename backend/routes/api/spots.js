@@ -100,6 +100,7 @@ router.get('/:id/reviews', asyncHandler(async (req, res) => {
 
   console.log('IDDDDDD', id);
   const reviews = await db.Review.findAll({
+    include: [db.User],
     where: { spotId: id }
   });
   return res.json(reviews);

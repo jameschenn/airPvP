@@ -45,7 +45,7 @@ const BookingForm = ({spot}) => {
   return (
     <div>
       <section>
-        <form className="new_booking" onSubmit={handleSubmit}>
+        <form className="new_booking" onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column'}}>
             <DatePicker
               selected={startDate}
               onChange={onChange}

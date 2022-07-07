@@ -9,6 +9,7 @@ import SpotReviews from '../Reviews';
 import { deleteReview } from '../../store/reviews';
 import EditReviewForm from '../EditReview';
 import BookingForm from '../BookingForm';
+import LoginFormModal from '../LoginFormModal';
 import './SingleSpot.css';
 
 const SingleSpot = () => {
@@ -66,10 +67,16 @@ const SingleSpot = () => {
           </>
           )
         }
+      {sessionUser ? (
 
-      <div className='booking'>
+        <div className='booking' style={{ width: '250px'}}>
         <BookingForm spot={spots} />
       </div>
+      ) : (
+        <div className='booking' style={{ width: '250px', height: '320px', backgroundColor: 'lightgray', display: 'flex', justifyContent:'center', alignItems:'center' }}>
+              <h3>Please <LoginFormModal /><br/> or <a href={`/signUp`}><button>sign up</button></a><br/> to start booking</h3>
+        </div>
+      )}
 
 
 
@@ -81,9 +88,9 @@ const SingleSpot = () => {
         <h2>Reviews</h2>
         {reviewsData?.map((review) => (
           <>
-            <p>This location was rated <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
+            <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
             <p>{review?.review}</p>
-            {console.log('REVIEW', review?.userId)}
+            {console.log('REVIEW', review)}
             {sessionUser?.id === review?.userId && (
             <>
             <EditReviewForm reviews={review} />
