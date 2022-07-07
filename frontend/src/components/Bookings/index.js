@@ -21,20 +21,22 @@ const Bookings = () => {
 
   return (
     <>
-  <div className='booking_container'>
+    {bookingsData.length > 0 ? (
+
+      <div className='booking_container'>
     {bookingsData.map(booking => (
       <ul>
         <li>
 
         <div className='booking_card'>
           <div className='booking_img'>
-            <img src={booking?.Spot?.img1} alt={booking?.Spot?.name} />
+            <a href={`/spots/${booking.id}`}><img src={booking?.Spot?.img1} alt={booking?.Spot?.name} /></a>
           </div>
           <div>
               <span style={{fontWeight: 'bold'}}>{booking?.Spot?.name}</span>
             <br / >
             {moment(booking?.startDate).utc().format('MMMM Do YYYY')}
-              &nbsp; to &nbsp;
+              &nbsp;to&nbsp;
             {moment(booking?.endDate).utc().format('MMMM Do YYYY')}
           </div>
           <div className='cancel_booking'>
@@ -47,6 +49,9 @@ const Bookings = () => {
       </ul>
     ))}
   </div>
+  ) : (
+    <h1 style={{textAlign:'center', marginTop: '250px'}}>Nothing booked yet. <br/> Take a look at one of our <a href={`/spots`}>VENUES</a></h1>
+  )}
     </>
   )
 
