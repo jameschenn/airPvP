@@ -12,6 +12,7 @@ li {
 
 .booking_card {
   background-color: snow;
+  border: solid 1px lightgrey;
   height: 420px;
   width: 400px;
   margin-top: 15px;
@@ -40,6 +41,12 @@ li {
   /* display: flex;
   justify-content: center; */
   margin-top: 10px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
 }
 
 @media screen and (max-width: 1540px) {

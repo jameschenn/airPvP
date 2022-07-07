@@ -1,54 +1,58 @@
-h1 {
-  margin-top: 20px;
-  margin-left: 25px;
-  font-size: 50px;
+.listing_header{
+  margin-left: 20rem;
+  margin-top: 1.5rem;
 }
-
-h2 {
-  margin-top: 20px;
-  margin-left: 25px;
-}
-
-h3 {
-  margin-left: 25px;
-}
-
-h4 {
-  margin-top: 5px;
-  margin-left: 50px;
-}
-
-
 
 .individual_photos {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  flex-grow: 1;
 }
 
 .individual-img {
+  height: 15rem;
+  width: 30rem;
+  margin: 5px;
+  border-radius: 20px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit:cover;
+  border: solid 1px lightgray;
+}
+
+.spot_location {
+  display: inline-block;
+  margin-left: 20rem;
+  margin-top: 1.5rem;
+}
+
+.spot_location h4 {
+  margin-top: 10px;
+  border-bottom: solid 1px salmon;
+}
+
+.info-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  object-fit: contain;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  /* border: solid black 2px; */
-  height: 400px;
-  width: 400px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: 260px;
 }
 
-p {
-  margin-top: 20px;
-  margin-left: 25px;
-  margin-bottom: 20px;
+.spot-description {
+  margin-left: 20rem;
+  margin-top: 10px;
+  width: 40rem;
+  padding: 5px;
+  border-bottom: solid 1px salmon;
 }
+
 
 button {
-  margin-left: 20px;
+  margin-top: 5px;
+  height: 25px;
+  background-color: white;
+  border: 1px solid palevioletred;
 }
 
 .add_listing {
@@ -59,4 +63,52 @@ button {
   align-items: flex-end;
   margin-right: 25px;
   margin-bottom: 5px;
+}
+
+.spot_reviews {
+  margin-left: 30rem;
+  width: 60rem;
+}
+
+.spot_reviews p {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+
+.booking-box {
+  background-color: lightgray;
+  height: 320px;
+  width: 250px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 995px) {
+  .individual_photos  {
+    text-align: center;
+  }
+
+  .listing_header {
+    margin-left: 140px;
+  }
+
+  .spot_description {
+   margin-left: 140px;
+  }
+
+  .spot_reviews {
+    margin-left: 75px;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .spot_reviews {
+    margin-left: 20rem;
+  }
+
 }

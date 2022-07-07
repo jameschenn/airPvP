@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   position: sticky;
   top: 0;
@@ -19,18 +20,19 @@
   justify-content: center;
   object-fit: contain;
   height: 60px;
-  margin-left: 2px;
-  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-top: 2px;
 }
 
 .header_right {
+  position: absolute;
+  right: 20px;
+  bottom: 3px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   justify-self: flex-end;
-  /* margin-left: 1000px;
-  margin-top: 30px; */
+
 }
 
 .header_right button {
@@ -46,15 +48,38 @@
   background-color: pink;
   border: solid palevioletred 1px;
   height: 30px;
-  width: 30px;
+  width: 50px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   margin-bottom: 20px;
 }
 
 .profile-dropdown {
+  position: absolute;
+  right: 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: solid 1px snow;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .profile-dropdown li {
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  /* border-bottom: solid 1px lightgray; */
+  padding: 10 50px;;
+}
+
+.profile-dropdown a:hover {
+  color: pink;
+}
+/* div the profile button resides in */
+.nav_profile_button {
+
+  margin-top: 15px;
+  margin-right: 50px;
 }
