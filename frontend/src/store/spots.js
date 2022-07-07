@@ -42,17 +42,56 @@ export const getOneSpot = id => async dispatch => {
   }
 }
 
-export const createSpot = payload => async dispatch => {
-  const response = await csrfFetch('/api/spots/new', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-  if(response.ok) {
-    const newSpot = await response.json();
-    dispatch(addOneSpot(newSpot));
-    return newSpot;
+// //Before AWS
+// export const createSpot = payload => async dispatch => {
+//   const response = await csrfFetch('/api/spots/new', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload)
+//   });
+//   if(response.ok) {
+//     const newSpot = await response.json();
+//     dispatch(addOneSpot(newSpot));
+//     return newSpot;
+//   }
+// };
+
+export const createSpot = spot => async dispatch => {
+
+  const { userId, address, city, state, country, series, name, description, price, images } = spot
+
+  const formData = new FormData()
+
+  formData.append('userId', userId)
+  formData.append('address', address)
+  formData.append('city', city)
+  formData.append('state', state)
+  formData.append('country', country)
+  formData.append('series', series)
+  formData.append('name', name)
+  formData.append('description', description)
+  formData.append('price', price)
+
+  if (images && images.length !== 0) {
+    for (var i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
   }
+
+  const res = await csrfFetch('/api/spots/new', {
+    method: "POST",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
+  });
+
+  if(res.ok) {
+    const spot = await res.json();
+    dispatch(addOneSpot(spot));
+    return spot;
+  }
+
 };
 
 export const editSpot = payload => async dispatch => {

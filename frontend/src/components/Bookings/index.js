@@ -49,7 +49,7 @@ const Bookings = () => {
 
                     <div className='booking_card'>
                       <div className='booking_img'>
-                        <a href={`/spots/${booking.id}`}><img src={booking?.Spot?.img1} alt={booking?.Spot?.name} /></a>
+                        <a href={`/spots/${booking.spotId}`}><img src={booking?.Spot?.img1} alt={booking?.Spot?.name} /></a>
                       </div>
                       <div>
                         <span style={{ fontWeight: 'bold' }}>{booking?.Spot?.name}</span>

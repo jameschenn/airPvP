@@ -14,10 +14,11 @@ const CreateSpotForm = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [img1, setImg1] = useState("");
-  const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
-  const [img4, setImg4] = useState("");
+  const [images, setImages] = useState([]);
+  // const [img1, setImg1] = useState("");
+  // const [img2, setImg2] = useState("");
+  // const [img3, setImg3] = useState("");
+  // const [img4, setImg4] = useState("");
 
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -40,13 +41,10 @@ const CreateSpotForm = () => {
     if (country.length > 50 || country.length < 2) errors.push('Please enter a valid country');
     if (series.length > 50 || series.length < 1) errors.push('Please provide a valid series');
     if (description.length > 1000 || description.length < 1) errors.push('Please provide a description within 1000 characters');
-    if (!(img1.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img2.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img3.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img4.match(url))) errors.push('Please enter a valid URL for your image');
+    if (images.length < 4) errors.push('Please upload 4 images');
     setErrors(errors);
 
-  }, [name, price, address, city, state, country, series, description, img1, img2, img3, img4])
+  }, [name, price, address, city, state, country, series, description, images])
 
 
   const handleSubmit = async (e) => {
@@ -66,10 +64,7 @@ const CreateSpotForm = () => {
       name,
       description,
       price,
-      img1,
-      img2,
-      img3,
-      img4,
+      images,
     };
 
     let createdSpot = await dispatch(spotActions.createSpot(payload));
@@ -78,6 +73,11 @@ const CreateSpotForm = () => {
       history.push(`/spots/${redirectId[0].id}`);
     }
   }
+
+  const updateFiles = (e) => {
+    const files = e.target.files;
+    setImages(files);
+  };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
@@ -179,7 +179,7 @@ const CreateSpotForm = () => {
           </label>
           <label>
             Main Image (Min. 4)
-            <input
+            {/* <input
               type='text'
               placeholder="Main Image"
               value={img1}
@@ -215,7 +215,12 @@ const CreateSpotForm = () => {
               value={img4}
               onChange={(e) => setImg4(e.target.value)}
               required
-            />
+            /> */}
+            <input
+              type="file"
+              multiple
+              required
+              onChange={updateFiles} />
           </label>
           <button type="submit" >Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
