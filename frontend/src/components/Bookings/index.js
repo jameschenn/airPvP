@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import moment from 'moment';
+import ClipLoader from "react-spinners/ClipLoader";
 import * as bookingActions from '../../store/bookings';
 import './bookings.css'
 
@@ -13,6 +14,15 @@ const Bookings = () => {
   const bookings = useSelector(state => state.bookings);
   const bookingsData = Object.values(bookings)
 
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 200)
+  }, [])
+
   useEffect(async() => {
     await dispatch(bookingActions.loadAllBookings(sessionUser.id))
   }, [dispatch, sessionUser.id])
@@ -21,11 +31,19 @@ const Bookings = () => {
 
   return (
     <>
-    {bookingsData.length > 0 ? (
+    {loading ? (
+        <div className="loading">
+          <ClipLoader color={'#50E3C2'} loading={loading} size={150} />
+        </div>
 
-      <div className='booking_container'>
-    {bookingsData.map(booking => (
-      <ul>
+    ): (
+      <>
+
+      {bookingsData.length > 0 ? (
+
+        <div className='booking_container'>
+        {bookingsData.map(booking => (
+          <ul>
         <li>
 
         <div className='booking_card'>
@@ -51,7 +69,9 @@ const Bookings = () => {
   </div>
   ) : (
     <h1 style={{textAlign:'center', marginTop: '250px'}}>Nothing booked yet. <br/> Take a look at one of our <a href={`/spots`}>VENUES</a></h1>
-  )}
+    )}
+    </>
+    )}
     </>
   )
 

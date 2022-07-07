@@ -30,14 +30,12 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="header">
-      <ul>
-        <li>
-          <NavLink exact to="/" className="header_icon"><img className="header_icon" src={logo} alt="header_logo" /></NavLink>
+      <div>
+        <NavLink exact to="/" className="header_icon"><img className="header_icon" src={logo} alt="header_logo" /></NavLink>
+      </div>
+      <div className='nav_profile_button'>
           {isLoaded && sessionLinks}
-        </li>
-      </ul>
-        <NavLink exact to="/spots/new" className="add_listing">Add a new Listing</NavLink>
-      <NavLink exact to="/bookings" className="add_listing">Check Bookings</NavLink>
+      </div>
     </div>
   );
 }
