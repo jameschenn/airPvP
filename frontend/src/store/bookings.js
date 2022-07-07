@@ -4,6 +4,12 @@ const LOAD = 'bookings/LOAD'
 const ADD_BOOKING = 'booking/ADD_BOOKING'
 const REMOVE_BOOKING = 'bookings/REMOVE_BOOKING'
 
+const CLEAR_STORE = 'images/CLEAR_STORE';
+
+const clearStore = () => ({
+  type: CLEAR_STORE
+})
+
 export const load = bookings => ({
   type: LOAD,
   bookings
@@ -18,6 +24,10 @@ export const removeOneBooking = bookingId => ({
   type: REMOVE_BOOKING,
   bookingId
 });
+
+export const clearStoreThunk = () => async dispatch => {
+  dispatch(clearStore())
+}
 
 export const loadAllBookings = (id) => async dispatch => {
   const response = await csrfFetch(`/api/bookings/${id}`);
@@ -64,15 +74,31 @@ const bookingsReducer = (state = initialState, action) => {
         ...allBookings
       };
       case ADD_BOOKING:
-        const newBooking ={
+        const newBooking = {
           ...state,
           [action.booking.id]: action.booking
         }
         return newBooking;
+      // case ADD_BOOKING:
+      //   if(!state[action.booking.id]) {
+      //     const newBooking = {
+      //       ...state,
+      //       [action.booking.id]: action.booking
+      //     }
+      //     return newBooking
+      //   } return {
+      //     ...state,
+      //     [action.booking.id]: {
+      //       ...state[action.booking.id],
+      //       ...action.booking
+      //     }
+      //   }
       case REMOVE_BOOKING:
         const newState = { ...state };
         delete newState[action.bookingId];
         return newState;
+      case CLEAR_STORE:
+        return {}
       default:
         return state;
   }

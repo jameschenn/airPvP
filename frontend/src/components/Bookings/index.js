@@ -24,6 +24,7 @@ const Bookings = () => {
   }, [])
 
   useEffect(async() => {
+    await dispatch(bookingActions.clearStoreThunk())
     await dispatch(bookingActions.loadAllBookings(sessionUser.id))
   }, [dispatch, sessionUser.id])
 
