@@ -33,7 +33,7 @@ const Bookings = () => {
     <>
     {loading ? (
         <div className="loading">
-          <ClipLoader color={'#50E3C2'} loading={loading} size={150} />
+          <ClipLoader color={'#ffd1dc'} loading={loading} size={150} />
         </div>
 
     ): (

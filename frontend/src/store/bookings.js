@@ -54,6 +54,7 @@ const initialState = {}
 const bookingsReducer = (state = initialState, action) => {
   switch(action.type) {
     case LOAD:
+      console.log('reducer', action)
       const allBookings = {};
       action.bookings.forEach(booking => {
         allBookings[booking.id] = booking
