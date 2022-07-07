@@ -44,43 +44,60 @@ const SingleSpot = () => {
       <div className='card'>
         {spotsData?.map((spot) => (
           <>
-          <h1>{spot.name}</h1>
+        <div className='listing_header'>
+          <h2>{spot.name}</h2>
           <h4>From the {spot.series} series!</h4>
-          <div className="individual_photos">
-            <img src={spot.img1} alt={spot.name} className="individual-img" />
-            <img src={spot.img2} alt={spot.name} className="individual-img" />
-            <img src={spot.img3} alt={spot.name} className="individual-img" />
-            <img src={spot.img4} alt={spot.name} className="individual-img" />
-          </div>
-      <div className="spot_description">
-        <h2>Entire location hosted by {spot?.User?.username} at {spot.price} / night</h2>
-        <h3>Located at {spot.address}, {spot.city}, {spot.state}, {spot.country}</h3>
-          <p>{spot.description}</p>
-      </div>
-          </>
-          ))}
-        {sessionUser?.id === spotsData[0]?.User?.id &&
-          (<>
-            <EditSpotForm spot={spots} hideForm={() => setShowEditForm(false)} />
-            <>
-            </>
-          </>
-          )
-        }
-      {sessionUser ? (
-
-        <div className='booking' style={{ width: '250px'}}>
-        <BookingForm spot={spots} />
-      </div>
-      ) : (
-        <div className='booking' style={{ width: '250px', height: '320px', backgroundColor: 'lightgray', display: 'flex', justifyContent:'center', alignItems:'center' }}>
-              <h3>Please <LoginFormModal /><br/> or <a href={`/signUp`}><button>sign up</button></a><br/> to start booking</h3>
         </div>
-      )}
+          <div className="individual_photos">
+            <div>
+              <img src={spot.img1} alt={spot.name} className="individual-img" />
+              <img src={spot.img2} alt={spot.name} className="individual-img" />
+            </div>
+            <div>
+              <img src={spot.img3} alt={spot.name} className="individual-img" />
+              <img src={spot.img4} alt={spot.name} className="individual-img" />
+            </div>
+          </div>
+            <div className='info-container'>
 
+              <div>
 
+                <div className="spot_location">
+                  <h3>Entire location hosted by {spot?.User?.username} at {spot.price} / night</h3>
+                  <h4>Located at {spot.address}, {spot.city}, {spot.state}, {spot.country}</h4>
+                </div>
 
+                <div className='spot-description'>
+                  <p>{spot.description}</p>
+                  {sessionUser?.id === spotsData[0]?.User?.id &&
+                    (<>
+                      <EditSpotForm spot={spots} hideForm={() => setShowEditForm(false)} />
+                      <>
+                      </>
+                    </>
+                    )
+                  }
+                </div>
+                </div>
 
+                <div>
+                  {/* Booking Calendar here */}
+                  {sessionUser ? (
+                    <div className='booking'>
+                      <BookingForm spot={spots} />
+                    </div>
+                  ) : (
+                    <div className='booking'>
+                      <div className='booking-box'>
+                        <h3>Please <LoginFormModal /><br /> or <a href={`/signUp`}><button>sign up</button></a><br /> to start booking</h3>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+            </div>
+          </>
+        ))}
 
 
 

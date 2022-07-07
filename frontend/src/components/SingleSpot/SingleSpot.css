@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
   margin-top: 20px;
   margin-left: 25px;
   font-size: 50px;
@@ -16,39 +16,59 @@ h3 {
 h4 {
   margin-top: 5px;
   margin-left: 50px;
+} */
+
+.listing_header{
+  margin-left: 20rem;
+  margin-top: 1.5rem;
 }
-
-
 
 .individual_photos {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  flex-grow: 1;
 }
 
 .individual-img {
+  height: 15rem;
+  width: 30rem;
+  margin: 5px;
+  border-radius: 20px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit:cover;
+}
+
+.spot_location {
+  display: inline-block;
+  margin-left: 20rem;
+  margin-top: 1.5rem;
+}
+
+.spot_location h4 {
+  margin-top: 10px;
+  border-bottom: solid 1px salmon;
+}
+
+.info-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  object-fit: contain;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  /* border: solid black 2px; */
-  height: 400px;
-  width: 400px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: 260px;
 }
 
-/* p {
-  margin-top: 20px;
-  margin-left: 25px;
-  margin-bottom: 20px;
-} */
+.spot-description {
+  margin-left: 20rem;
+  margin-top: 10px;
+  width: 40rem;
+  padding: 5px;
+  border-bottom: solid 1px salmon;
+}
+
 
 button {
-  margin-left: 20px;
+  margin-top: 7px;
 }
 
 .add_listing {
@@ -61,14 +81,44 @@ button {
   margin-bottom: 5px;
 }
 
-.spot_reviews p {
+/* .spot_reviews p {
   margin-top: 20px;
   margin-left: 25px;
   margin-bottom: 20px;
+} */
+
+/* .booking {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15rem;
+
+} */
+
+
+.booking-box {
+  background-color: lightgray;
+  height: 320px;
+  width: 250px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.spot_description p {
-  margin-top: 20px;
-  margin-left: 25px;
-  margin-bottom: 20px;
+
+
+
+
+@media screen and (max-width: 995px) {
+  .individual_photos  {
+    text-align: center;
+  }
+
+  .listing_header {
+    margin-left: 140px;
+  }
+
+  .spot_description {
+   margin-left: 140px;
+  }
 }
