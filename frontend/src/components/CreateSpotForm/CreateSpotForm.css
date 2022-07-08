@@ -1,4 +1,4 @@
-.new_spot {
+/* .new_spot {
   display: flex;
   flex-direction: column;
 }
@@ -24,4 +24,37 @@
 .new_spot input {
   margin-top: 5px;
   text-align: center;
+} */
+
+.errorDiv {
+  text-align: center;
+  margin: 20px;
+}
+
+.errors li {
+  margin-bottom: 15px;
+  color: red;
+  font-weight: bold;
+}
+
+.new-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.new-inputs label {
+  font-weight: bold;
+}
+
+.new-inputs input {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
 }

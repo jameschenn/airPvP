@@ -97,133 +97,142 @@ const CreateSpotForm = () => {
               ))}
             </ul>
           </div>
-          <label>
-            House Name
-            <input
-              type='text'
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Address
-            <input
-              type='text'
-              placeholder="Address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            City
-            <input
-              type='text'
-              placeholder="City"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            State
-            <input
-              type='text'
-              placeholder="State"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Country
-            <input
-              type='text'
-              placeholder="Country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Series
-            <input
-              type='text'
-              placeholder="Series"
-              value={series}
-              onChange={(e) => setSeries(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Description
-            <input
-              type='text'
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Price
-            <input
-              type='number'
-              placeholder="Price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Main Image (Min. 4)
-            {/* <input
-              type='text'
-              placeholder="Main Image"
-              value={img1}
-              onChange={(e) => setImg1(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img2}
-              onChange={(e) => setImg2(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img3}
-              onChange={(e) => setImg3(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img4}
-              onChange={(e) => setImg4(e.target.value)}
-              required
-            /> */}
-            <input
-              type="file"
-              multiple
-              required
-              onChange={updateFiles} />
-          </label>
-          <button type="submit" >Submit</button>
-          <button type="button" onClick={handleCancelClick}>Cancel</button>
+          <div className='new-container'>
+            <div className='new-inputs'>
+              <label>
+                House Name
+                <input
+                  type='text'
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Address
+                <input
+                  type='text'
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                City
+                <input
+                  type='text'
+                  placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                State
+                <input
+                  type='text'
+                  placeholder="State"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <div className='new-inputs'>
+              <label>
+                Country
+                <input
+                  type='text'
+                  placeholder="Country"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Series
+                <input
+                  type='text'
+                  placeholder="Series"
+                  value={series}
+                  onChange={(e) => setSeries(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Description
+                <input
+                  type='text'
+                  placeholder="Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Price
+                <input
+                  type='number'
+                  placeholder="Price"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <div className='image-upload-div'>
+            <label className='image-upload'>
+              Main Image (Min. 4)
+              {/* <input
+                type='text'
+                placeholder="Main Image"
+                value={img1}
+                onChange={(e) => setImg1(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img2}
+                onChange={(e) => setImg2(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img3}
+                onChange={(e) => setImg3(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img4}
+                onChange={(e) => setImg4(e.target.value)}
+                required
+              /> */}
+              <input
+                type="file"
+                multiple
+                onChange={updateFiles} />
+            </label>
+          </div>
+          <div className='form_button'>
+            <button type="submit" >Submit</button>
+            <button type="button" style={{marginLeft:'25px'}} onClick={handleCancelClick}>Cancel</button>
+          </div>
         </form>
       </section>
     </div>

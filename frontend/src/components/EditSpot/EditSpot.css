@@ -36,12 +36,13 @@
   cursor: pointer;
   background-color: white;
   border: solid 1px hotpink;
+  padding: 5px;
 }
 
 .image-upload-div label:hover {
-  border: 2px solid cadetblue;
-  color: cadetblue;
-  background-color: white;
+  border: 2px solid salmon;
+  color: white;
+  background-color: pink;
 }
 
 .form_buttons {
