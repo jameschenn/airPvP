@@ -7,16 +7,39 @@ import './spots.css';
 const SpotsBrowser = () => {
   const dispatch = useDispatch();
 
-  const spots = useSelector(state => state.spots);
-
-  const spotsData = Object.values(spots);
-
   useEffect(() => {
     dispatch(loadAllSpots());
   }, [dispatch]);
 
+  const spots = useSelector(state => state.spots);
+  const spotsData = Object.values(spots);
+  const searches = useSelector(state => state.search)
+  const searchData = Object.values(searches);
+  console.log('SEARCH', searchData);
+
   return (
     <>
+    {searchData.length > 0 ? (
+      <div className='spot_container'>
+        {searchData?.map((spot) => (
+          <ul>
+            <li>
+              <div className='spot_card'>
+                <div className='booking_img'>
+                  <a href={`/spots/${spot.id}`}><img src={spot.img1} alt={spot.name} className="card-img" /></a>
+                </div>
+                <div className='spot_info'>
+                  <p style={{ fontWeight: 'bold' }}>{spot?.name}</p>
+                  <p>{spot?.series}</p>
+                  <p><span style={{ fontWeight: 'bold' }}>{spot?.price}</span> / night</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        ))}
+      </div>
+    ) : (
+
       <div className='spot_container'>
         {spotsData?.map((spot) => (
           <ul>
@@ -37,6 +60,7 @@ const SpotsBrowser = () => {
           </ul>
         ))}
       </div>
+    )}
     </>
   )
 }

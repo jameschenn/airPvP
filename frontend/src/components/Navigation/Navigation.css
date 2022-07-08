@@ -83,3 +83,16 @@
   margin-top: 15px;
   margin-right: 50px;
 }
+
+.searchbar {
+  margin-top: 10px;
+}
+
+.searchbar input {
+  background-color: snow;
+  width: 25rem;
+  border-radius: 30px;
+  border: solid 1px lightgray;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  text-align: center;
+}

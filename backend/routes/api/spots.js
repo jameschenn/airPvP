@@ -5,6 +5,8 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const {multipleMulterUpload, multiplePublicFileUpload} = require("../../awsS3");
 
+const Sequelize = require('sequelize');
+
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
@@ -108,6 +110,24 @@ router.get('/:id/reviews', asyncHandler(async (req, res) => {
     where: { spotId: id }
   });
   return res.json(reviews);
+}))
+
+router.post('/search', asyncHandler(async(req, res) => {
+  console.log('FROM THE BACKENDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD')
+  const { searchParams } = req.body;
+
+  if(searchParams === '') {
+    const result = await db.Spot.findAll();
+    return res.json(result)
+  }
+  const result = await db.Spot.findAll({
+    where: {
+      name: {
+        [Sequelize.Op.iLike]: `%${searchParams}%`
+      }
+    }
+  });
+  return res.json(result);
 }))
 
 module.exports = router;
