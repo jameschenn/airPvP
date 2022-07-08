@@ -94,18 +94,54 @@ export const createSpot = spot => async dispatch => {
 
 };
 
+// // Before AWS
+// export const editSpot = payload => async dispatch => {
+//   const response = await csrfFetch(`/api/spots/${+payload.id}`, {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload)
+//   });
+//   if(response.ok) {
+//     const newSpot = await response.json();
+//     dispatch(addOneSpot(newSpot));
+//     return newSpot;
+//   }
+// };
+
 export const editSpot = payload => async dispatch => {
-  const response = await csrfFetch(`/api/spots/${+payload.id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-  if(response.ok) {
-    const newSpot = await response.json();
-    dispatch(addOneSpot(newSpot));
-    return newSpot;
+
+  console.log('from the thunk')
+  console.log('before', payload)
+  const { userId, address, city, state, country, series, name, description, price, images } = payload
+  console.log('after', payload)
+  const formData = new FormData()
+  formData.append('userId', userId)
+  formData.append('address', address)
+  formData.append('city', city)
+  formData.append('state', state)
+  formData.append('country', country)
+  formData.append('series', series)
+  formData.append('name', name)
+  formData.append('description', description)
+  formData.append('price', price)
+
+  if (images && images.length !== 0) {
+    for (var i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
   }
-};
+
+  const res = await csrfFetch(`/api/spots/${+payload.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'multipart/form-data' },
+    body: formData
+  })
+  if(res.ok) {
+    const spot = await res.json();
+    dispatch(addOneSpot(spot));
+    return spot;
+  }
+}
 
 export const deleteSpot = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`, {
@@ -147,6 +183,7 @@ const spotReducer = (state = initialState, action) => {
         }
       }
       case UPDATE_ONE:
+        console.log('from the reducer')
         return {
           ...state,
           [action.spot.id]: action.spot

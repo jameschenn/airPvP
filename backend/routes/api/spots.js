@@ -47,7 +47,6 @@ router.post('/new', multipleMulterUpload("images"), asyncHandler(async(req, res)
 }))
 
 router.put('/:id', multipleMulterUpload("images"), asyncHandler(async(req, res) => {
-
   const { userId, address, city, state, country, series, name, description, price, img1, img2, img3, img4 } = req.body;
 
   const id = parseInt(req.params.id, 10);
@@ -99,11 +98,11 @@ router.post('/:id/reviews', asyncHandler(async(req, res) => {
 }))
 
 router.get('/:id/reviews', asyncHandler(async (req, res) => {
-  console.log('WORKING');
+  // console.log('WORKING');
 
   const id = parseInt(req.params.id, 10);
 
-  console.log('IDDDDDD', id);
+  // console.log('IDDDDDD', id);
   const reviews = await db.Review.findAll({
     include: [db.User],
     where: { spotId: id }
