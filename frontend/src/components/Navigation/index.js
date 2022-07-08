@@ -57,7 +57,7 @@ function Navigation({ isLoaded }) {
             className='formItem'
             type='text'
             value={searchContent}
-            placeholder='Search for venues'
+            placeholder='Search for venues...'
             onChange={e => setSearchContent(e.target.value)}
           />
         </form>
