@@ -70,9 +70,23 @@ button {
   width: 60rem;
 }
 
+.spot_reviews form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .spot_reviews p {
   margin-top: 20px;
   margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.individual_review {
+  border: solid 1px salmon;
+  border-radius: 25px;
+  background-color: snow;
+  padding: 0.5rem;
   margin-bottom: 20px;
 }
 

@@ -12,6 +12,7 @@ const EditSpotForm = ({spot, hideForm}) => {
   const spotData = Object.values(spot);
   const currentSpot = spotData[0]?.id;
   const sessionSpot = useSelector((state) => state.spots);
+  const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams();
   // console.log('Spot\'s info', sessionSpot[id]);
 
@@ -23,10 +24,12 @@ const EditSpotForm = ({spot, hideForm}) => {
   const [name, setName] = useState(sessionSpot[id]?.name || "");
   const [description, setDescription] = useState(sessionSpot[id]?.description || "");
   const [price, setPrice] = useState(sessionSpot[id]?.price || "");
-  const [img1, setImg1] = useState(sessionSpot[id]?.img1 || "");
-  const [img2, setImg2] = useState(sessionSpot[id]?.img2 || "");
-  const [img3, setImg3] = useState(sessionSpot[id]?.img3 || "");
-  const [img4, setImg4] = useState(sessionSpot[id]?.img4 || "");
+  // const [img1, setImg1] = useState(sessionSpot[id]?.img1 || "");
+  // const [img2, setImg2] = useState(sessionSpot[id]?.img2 || "");
+  // const [img3, setImg3] = useState(sessionSpot[id]?.img3 || "");
+  // const [img4, setImg4] = useState(sessionSpot[id]?.img4 || "");
+  const [images, setImages] = useState(sessionSpot[id]?.images || [])
+
 
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -49,13 +52,13 @@ const EditSpotForm = ({spot, hideForm}) => {
     if (country.length > 50 || country.length < 2) errors.push('Please enter a valid country');
     if (series.length > 50 || series.length < 1) errors.push('Please provide a valid series');
     if (description.length > 1000 || description.length < 1) errors.push('Please provide a description within 1000 characters');
-    if (!(img1.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img2.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img3.match(url))) errors.push('Please enter a valid URL for your image');
-    if (!(img4.match(url))) errors.push('Please enter a valid URL for your image');
+    // if (!(img1.match(url))) errors.push('Please enter a valid URL for your image');
+    // if (!(img2.match(url))) errors.push('Please enter a valid URL for your image');
+    // if (!(img3.match(url))) errors.push('Please enter a valid URL for your image');
+    // if (!(img4.match(url))) errors.push('Please enter a valid URL for your image');
     setErrors(errors);
 
-  }, [name, price, address, city, state, country, series, description, img1, img2, img3, img4])
+  }, [name, price, address, city, state, country, series, description])
 
 
   const handleSubmit = async (e) => {
@@ -67,6 +70,7 @@ const EditSpotForm = ({spot, hideForm}) => {
 
     const payload = {
       ...spot,
+      userId: sessionUser.id,
       address,
       city,
       state,
@@ -75,18 +79,21 @@ const EditSpotForm = ({spot, hideForm}) => {
       name,
       description,
       price,
-      img1,
-      img2,
-      img3,
-      img4,
+      images,
       id: currentSpot
     };
-
+    console.log('PAYLOAD', payload)
     let editedSpot = await dispatch(editSpot(payload));
     // if(editedSpot) {
     //   hideForm();
     // }
   };
+
+
+  const updateFiles = e => {
+    const files = e.target.files
+    setImages(files)
+  }
 
   const handleCancelClick = (e) => {
     e.preventDefault();
@@ -110,6 +117,7 @@ const EditSpotForm = ({spot, hideForm}) => {
                   ))}
                 </ul>
               </div>
+          <div className="edit-row">
 
           <label>
             House Name
@@ -119,7 +127,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Address
@@ -139,7 +147,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             State
@@ -149,8 +157,11 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={state}
               onChange={(e) => setState(e.target.value)}
               required
-            />
+              />
           </label>
+          </div>
+          <div className="edit-row">
+
           <label>
             Country
             <input
@@ -169,7 +180,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={series}
               onChange={(e) => setSeries(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Description
@@ -179,7 +190,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Price
@@ -189,49 +200,58 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            Main Image
-            <input
-              type='text'
-              placeholder="Main Image"
-              value={img1}
-              onChange={(e) => setImg1(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img2}
-              onChange={(e) => setImg2(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img3}
-              onChange={(e) => setImg3(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img4}
-              onChange={(e) => setImg4(e.target.value)}
-              required
-            />
-          </label>
+          </div>
           <div className="form_buttons">
+            <div className="image-upload-div">
+              <label className="image-upload">
+                Images (Please upload 4)
+              {/* <input
+                type='text'
+                placeholder="Main Image"
+                value={img1}
+                onChange={(e) => setImg1(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img2}
+                onChange={(e) => setImg2(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img3}
+                onChange={(e) => setImg3(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img4}
+                onChange={(e) => setImg4(e.target.value)}
+                required
+              /> */}
+              <input
+                className='formItem'
+                type='file'
+                multiple
+                onChange={updateFiles}
+              />
+            </label>
+          </div>
           <button type="submit">Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
               <button onClick={() => {

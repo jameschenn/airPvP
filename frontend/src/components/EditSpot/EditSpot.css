@@ -1,9 +1,52 @@
-form {
+.form_container {
+  background-color:whitesmoke;
+  border: solid 1px salmon;
+  padding: 1rem;
+}
+
+.form_container form {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  align-items: flex-end;
-  align-content: center;
-  padding: 20px;
+  margin-right: 6rem;
+
+}
+
+.edit_spot {
+  text-align: center;
+}
+
+.edit_spot label {
+  margin: 10px;
+}
+
+.image-upload-div {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.image-upload-div input {
+  display: none;
+}
+
+.image-upload-div label {
+
+  cursor: pointer;
+  background-color: white;
+  border: solid 1px hotpink;
+  padding: 5px;
+}
+
+.image-upload-div label:hover {
+  border: 2px solid salmon;
+  color: white;
+  background-color: pink;
+}
+
+.form_buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
 }

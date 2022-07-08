@@ -1,0 +1,26 @@
+.new_review {
+  display: flex;
+  flex-direction: column;
+}
+
+.review_inputs {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  width: 50rem;
+  justify-content: space-around;
+  margin-right: 100px;
+}
+
+.review_submit {
+  text-align: center;
+  margin-top:25px;
+  margin-right: 150px;
+}
+
+.review_errors {
+  text-align: center;
+  margin-right: 150px;
+  color: red;
+  font-weight: bold;
+}

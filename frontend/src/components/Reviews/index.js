@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router';
 import * as reviewActions from '../../store/reviews';
+import './reviews.css'
 
 const SpotReviews = () => {
   const dispatch = useDispatch();
@@ -51,31 +52,39 @@ const SpotReviews = () => {
 
 
   return (
-    <div>
+    <div className='new_review'>
       <section>
-        <form className="new_review" onSubmit={handleSubmit}>
-          <ul>
-            {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <label>
-            How was it? Leave A Review
-            <input
-              type='text'
-              placeholder='Leave a review'
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
-            />
-          </label>
-          <label>
-            Give it a rating between 1 through 5
-            <input
-              type='number'
-              placeholder='Leave a rating'
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-            />
-          </label>
-          <button type="submit">Submit</button>
+        <form onSubmit={handleSubmit}>
+          <div className='review_container'>
+          <div className='review_errors'>
+            <ul>
+              {hasSubmitted && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+          </div>
+          <div className='review_inputs'>
+            <label>
+                <span style={{fontWeight:'bold'}}>How was it? Leave A Review</span>
+              <input
+                type='text'
+                placeholder='Leave a review'
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+                />
+            </label>
+            <label>
+                <span style={{fontWeight:'bold'}}>Give it a rating between 1 through 5</span>
+              <input
+                type='number'
+                placeholder='Leave a rating'
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+                />
+            </label>
+          </div>
+          <div className="review_submit">
+            <button type="submit">Submit</button>
+          </div>
+          </div>
         </form>
       </section>
     </div>
