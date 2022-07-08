@@ -47,8 +47,9 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="header">
-      <div>
+      <div className='header_left'>
         <NavLink exact to="/" className="header_icon"><img className="header_icon" src={logo} alt="header_logo" /></NavLink>
+        <NavLink exact to='spots' style={{fontWeight:'bold', marginLeft:'20px'}}>All spots</NavLink>
       </div>
 
       <div className='searchbar'>
