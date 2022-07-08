@@ -21,13 +21,21 @@
   object-fit: contain;
   height: 60px;
   margin-left: 10px;
-  margin-top: 2px;
+}
+
+.header_left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header_left a:hover {
+  color: pink;
 }
 
 .header_right {
   position: absolute;
   right: 20px;
-  bottom: 3px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,7 +50,8 @@
 }
 
 .signup_button {
-  margin-left: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 .profileButton {
   background-color: pink;
@@ -95,4 +104,15 @@
   border: solid 1px lightgray;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   text-align: center;
+}
+
+
+@media screen and (max-width: 500px) {
+  .searchbar {
+    visibility: hidden;
+  }
+
+  .header_right {
+    margin-right: 50px;
+  }
 }
