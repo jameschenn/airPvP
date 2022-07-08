@@ -117,6 +117,7 @@ const EditSpotForm = ({spot, hideForm}) => {
                   ))}
                 </ul>
               </div>
+          <div className="edit-row">
 
           <label>
             House Name
@@ -126,7 +127,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Address
@@ -146,7 +147,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             State
@@ -156,8 +157,11 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={state}
               onChange={(e) => setState(e.target.value)}
               required
-            />
+              />
           </label>
+          </div>
+          <div className="edit-row">
+
           <label>
             Country
             <input
@@ -176,7 +180,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={series}
               onChange={(e) => setSeries(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Description
@@ -186,7 +190,7 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
-            />
+              />
           </label>
           <label>
             Price
@@ -196,55 +200,58 @@ const EditSpotForm = ({spot, hideForm}) => {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            Images (Please upload 4)
-            {/* <input
-              type='text'
-              placeholder="Main Image"
-              value={img1}
-              onChange={(e) => setImg1(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img2}
-              onChange={(e) => setImg2(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img3}
-              onChange={(e) => setImg3(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Additional Image
-            <input
-              type='text'
-              placeholder="Additional Image"
-              value={img4}
-              onChange={(e) => setImg4(e.target.value)}
-              required
-            /> */}
-            <input
-              className='formItem'
-              type='file'
-              multiple
-              onChange={updateFiles}
-            />
-          </label>
+          </div>
           <div className="form_buttons">
+            <div className="image-upload-div">
+              <label className="image-upload">
+                Images (Please upload 4)
+              {/* <input
+                type='text'
+                placeholder="Main Image"
+                value={img1}
+                onChange={(e) => setImg1(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img2}
+                onChange={(e) => setImg2(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img3}
+                onChange={(e) => setImg3(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Additional Image
+              <input
+                type='text'
+                placeholder="Additional Image"
+                value={img4}
+                onChange={(e) => setImg4(e.target.value)}
+                required
+              /> */}
+              <input
+                className='formItem'
+                type='file'
+                multiple
+                onChange={updateFiles}
+              />
+            </label>
+          </div>
           <button type="submit">Submit</button>
           <button type="button" onClick={handleCancelClick}>Cancel</button>
               <button onClick={() => {
