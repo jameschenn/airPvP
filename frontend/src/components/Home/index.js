@@ -23,7 +23,7 @@ function Home() {
   }
 
   const randomSpotsArr = [];
-  for(let i = 0; i < 3; i++) {
+  for(let i = 0; i < 4; i++) {
     const randomSpot = random(spots);
     randomSpotsArr.push(randomSpot);
   }
