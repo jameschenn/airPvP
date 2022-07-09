@@ -100,11 +100,9 @@ router.post('/:id/reviews', asyncHandler(async(req, res) => {
 }))
 
 router.get('/:id/reviews', asyncHandler(async (req, res) => {
-  // console.log('WORKING');
 
   const id = parseInt(req.params.id, 10);
 
-  // console.log('IDDDDDD', id);
   const reviews = await db.Review.findAll({
     include: [db.User],
     where: { spotId: id }
@@ -113,7 +111,6 @@ router.get('/:id/reviews', asyncHandler(async (req, res) => {
 }))
 
 router.post('/search', asyncHandler(async(req, res) => {
-  console.log('FROM THE BACKENDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD')
   const { searchParams } = req.body;
 
   if(searchParams === '') {

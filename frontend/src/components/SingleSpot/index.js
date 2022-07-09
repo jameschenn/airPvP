@@ -100,15 +100,12 @@ const SingleSpot = () => {
         ))}
 
         <div className='spot_reviews'>
-          <div className='num-of-reviews'>
-            <h2>{reviewsData?.length} Reviews</h2>
-          </div>
+          <h2>{reviewsData?.length} Reviews</h2>
           {reviewsData?.map((review) => (
           <div className='individual_review'>
             <>
               <p><span style={{ fontWeight: "bold" }}>{review?.User?.username}</span> rated this location <span style={{ fontWeight: "bold" }}>{review?.rating} out of 5</span></p>
               <p>{review?.review}</p>
-              {console.log('REVIEW', review)}
               {sessionUser?.id === review?.userId && (
                 <>
                   <div style={{ marginLeft: '30px' }}>

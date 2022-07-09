@@ -28,7 +28,6 @@ const Bookings = () => {
     await dispatch(bookingActions.loadAllBookings(sessionUser.id))
   }, [dispatch, sessionUser.id])
 
-  console.log('BOOKINGS', bookingsData)
 
   return (
     <>

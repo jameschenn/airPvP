@@ -110,10 +110,7 @@ export const createSpot = spot => async dispatch => {
 
 export const editSpot = payload => async dispatch => {
 
-  console.log('from the thunk')
-  console.log('before', payload)
   const { userId, address, city, state, country, series, name, description, price, images } = payload
-  console.log('after', payload)
   const formData = new FormData()
   formData.append('userId', userId)
   formData.append('address', address)
@@ -183,7 +180,6 @@ const spotReducer = (state = initialState, action) => {
         }
       }
       case UPDATE_ONE:
-        console.log('from the reducer')
         return {
           ...state,
           [action.spot.id]: action.spot

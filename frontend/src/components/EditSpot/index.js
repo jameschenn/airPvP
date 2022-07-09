@@ -14,7 +14,6 @@ const EditSpotForm = ({spot, hideForm}) => {
   const sessionSpot = useSelector((state) => state.spots);
   const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams();
-  // console.log('Spot\'s info', sessionSpot[id]);
 
   const [address, setAddress] = useState(sessionSpot[id]?.address || "");
   const [city, setCity] = useState(sessionSpot[id]?.city || "");
@@ -82,7 +81,6 @@ const EditSpotForm = ({spot, hideForm}) => {
       images,
       id: currentSpot
     };
-    console.log('PAYLOAD', payload)
     let editedSpot = await dispatch(editSpot(payload));
     // if(editedSpot) {
     //   hideForm();

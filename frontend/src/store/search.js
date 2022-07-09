@@ -17,7 +17,6 @@ export const clearThunk = () => dispatch => {
 }
 
 export const searchThunk = searchParam => async dispatch => {
-  console.log('from thunk')
   const result = await csrfFetch(`/api/spots/search`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -35,7 +34,6 @@ const initialState = {}
 const searchReducer = (state = initialState, action) => {
   switch(action.type) {
     case SEARCH:
-      console.log('from reducer', action)
       const searchResults = {}
       action.search.forEach(results => {
         searchResults[results.id] = results

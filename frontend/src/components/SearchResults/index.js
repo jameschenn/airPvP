@@ -15,7 +15,6 @@ const SearchResults = () => {
   const spotsData = Object.values(spots);
   const searches = useSelector(state => state.search)
   const searchData = Object.values(searches);
-  console.log('SEARCH', searchData);
 
   const random = spot => {
     const randomNum = Math.floor(Math.random() * spotsData.length);
