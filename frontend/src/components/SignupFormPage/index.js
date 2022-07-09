@@ -32,12 +32,15 @@ function SignupFormPage() {
     <div className='container'>
       <div className='signUp-container'>
     <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+      <div className="error-div">
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+      </div>
       <div className="signup-header">
         <h2>Welcome to AirPvP</h2>
       </div>
+      <div className="signup-inputs">
       <input
           type="text"
           placeholder="Email"
@@ -67,6 +70,7 @@ function SignupFormPage() {
           required
         />
       <button type="submit" className="signUpButton">Sign Up</button>
+      </div>
     </form>
       </div>
     </div>

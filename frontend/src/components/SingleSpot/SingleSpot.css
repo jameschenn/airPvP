@@ -66,8 +66,10 @@ button {
 }
 
 .spot_reviews {
-  margin-left: 30rem;
-  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .spot_reviews form {
@@ -88,6 +90,7 @@ button {
   background-color: snow;
   padding: 0.5rem;
   margin-bottom: 20px;
+  width: 60rem;
 }
 
 
@@ -120,9 +123,9 @@ button {
   }
 }
 
-@media screen and (max-width: 1550px) {
+/* @media screen and (max-width: 1550px) {
   .spot_reviews {
     margin-left: 20rem;
   }
 
-}
+} */

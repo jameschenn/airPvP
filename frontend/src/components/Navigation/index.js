@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
   //Search Bar Stuff
   const handleSubmit = e => {
     e.preventDefault();
-    history.push('/spots');
+    history.push('/search');
     const payload = {
       searchParams: searchContent
     }

@@ -100,7 +100,9 @@ const SingleSpot = () => {
         ))}
 
         <div className='spot_reviews'>
-          <h2>{reviewsData?.length} Reviews</h2>
+          <div className='num-of-reviews'>
+            <h2>{reviewsData?.length} Reviews</h2>
+          </div>
           {reviewsData?.map((review) => (
           <div className='individual_review'>
             <>
