@@ -8,25 +8,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
-  height: 400px;
+  margin-top: 4rem;
+  height: 530px;
   width: 300px;
-  border: 1px solid black;
+  border: 1px solid salmon;
   /* border-radius: 20px; */
     box-shadow: 5px 5px 5px 5px rgba(61, 60, 60, 0.25);
-  background-color: gray;
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
+.signUp-container button {
+  margin-left: 15px;
 }
 
 h2 {
   padding-bottom: 20px;
-}
-
-input {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    border: none;
-    border-bottom: 1px solid lightgray;
+  text-align: center;
 }
 
 .signUpButton {
@@ -41,4 +39,25 @@ input {
 button:hover {
 transition: all .2s ease-in-out;
 transform: scale(1.1);
+}
+
+.error-div li {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.signup-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-inputs input {
+  margin-top: 10px;
+  width: 15rem;
+  border: none;
+  border-bottom: 1px solid lightgray;
 }
