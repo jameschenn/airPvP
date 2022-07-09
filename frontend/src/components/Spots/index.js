@@ -36,7 +36,6 @@ const SpotsBrowser = () => {
           </ul>
         ))}
       </div>
-    )}
     </>
   )
 }
