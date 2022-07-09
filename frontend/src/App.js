@@ -10,6 +10,7 @@ import SpotsBrowser from './components/Spots'
 import SingleSpot from './components/SingleSpot'
 import CreateSpotForm from "./components/CreateSpotForm";
 import Bookings from "./components/Bookings";
+import SearchResults from "./components/SearchResults";
 import './index.css'
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path='/bookings'>
             <Bookings />
+          </Route>
+          <Route path='/search'>
+            <SearchResults />
           </Route>
         </Switch>
       )}
