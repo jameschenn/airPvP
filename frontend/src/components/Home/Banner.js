@@ -7,7 +7,8 @@ function Banner() {
     <div className='banner'>
       <div className='banner_info'>
         <h1>Welcome to AirPvP</h1>
-        <button className="banner_button"><a href="/spots">I'm Flexible</a></button>
+        <h2>Let's begin</h2>
+        <NavLink to="/spots"><button className="banner_button">START</button></NavLink>
       </div>
 
     </div>

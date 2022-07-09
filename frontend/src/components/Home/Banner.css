@@ -1,9 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
 .banner {
   position: relative;
-  height: 70vh;
+  height: 100vh;
   background: url("https://res.cloudinary.com/jameschenn/image/upload/v1649668443/airPvP/splash_banner_lah6df.png?im_w=1200") center center;
-  margin-bottom: 50px;
-  margin-top: 50px;
+
 }
 
 .banner_info {
@@ -11,17 +15,31 @@
   text-align: center;
 }
 
+.banner_info h1 {
+  padding: 18px;
+}
+
 .banner_button {
   margin-top: 10px;
   height: 40px;
   width: 100px;
-  background-color: transparent;
-  border: 3px solid white;
+  color: black;
+  background-color: black;
+  border: 2px solid white;
   border-radius: 30px;
+  color: white;
+  font-weight: bold;
 }
 
-.banner_button a {
-  color: white;
+.banner_button:hover {
+  background-color: pink;
+  box-shadow:
+    0 0 60px 10px #fff,
+        /* inner white */
+    0 0 100px 25px #f0f,
+        /* middle magenta */
+    0 0 140px 35px #0ff;
+      /* outer cyan */
 }
 
 .banner_button:hover a {
