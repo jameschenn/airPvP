@@ -55,7 +55,7 @@ const BookingForm = ({spot}) => {
       // }
       //Checks if any dates in between the start and end dates selected
       if (dbEndDate <= endDate.setHours(0, 0, 0, 0) &&
-          dbEndDate <= endDate.setHours(0, 0, 0, 0)) {
+          dbEndDate >= startDate.setHours(0, 0, 0, 0)) {
         console.log('string triggered')
         errors.push('These dates are unavailable')
         break;
