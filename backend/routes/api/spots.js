@@ -19,7 +19,7 @@ router.get('/:id', asyncHandler(async(req, res) => {
 
   const id = parseInt(req.params.id, 10);
   const spot = await db.Spot.findByPk(id, {
-    include: [db.User, { model: db.Review, include: db.User }]
+    include: [db.User, db.Booking, { model: db.Review, include: db.User }]
   })
   return res.json(spot);
 }))
