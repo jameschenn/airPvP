@@ -30,16 +30,14 @@ const BookingForm = ({spot}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(errors.length > 0) errors.pop();
+
     for (let booking of spotsData[0].Bookings) {
 
       let now = (new Date()).setHours(0, 0, 0, 0)
-      let dbStartDate = (new Date(booking?.startDate)).setHours(0, 0, 0, 0);
-      // console.log('start', dbStartDate);
-      let dbEndDate = (new Date(booking?.endDate))
-      // .setHours(0, 0, 0, 0);
+      // let dbStartDate = (new Date(booking?.startDate)).setHours(0, 0, 0, 0);
+      let dbEndDate = (new Date(booking?.endDate)).setHours(0, 0, 0, 0);
 
-      // let dbEndDate = (new Date(booking?.endDate)).setHours(0, 0, 0, 0);
-      console.log('end date', dbEndDate);
 
       //The start date is before current date
       if (startDate.setHours(0, 0, 0, 0) < now) {
@@ -49,22 +47,19 @@ const BookingForm = ({spot}) => {
 
       //Checks if any other booking dates have been reserved already for this date
       // if (startDate.setHours(0, 0, 0, 0) === dbStartDate) {
-      //   console.log('first if')
       //   errors.push('These Dates are unavailable')
       //   break;
       // }
+
       //Checks if any dates in between the start and end dates selected
       if (dbEndDate <= endDate.setHours(0, 0, 0, 0) &&
           dbEndDate >= startDate.setHours(0, 0, 0, 0)) {
-        console.log('string triggered')
         errors.push('These dates are unavailable')
         break;
       }
     }
 
     setErrors(errors)
-    console.log('errors', errors)
-
     setHasSubmitted(true);
 
     if(errors.length > 0) return;
