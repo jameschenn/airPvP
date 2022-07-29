@@ -1,6 +1,6 @@
 const AWS = require("aws-sdk");
 // name of your bucket here
-const NAME_OF_BUCKET = "airpvp";
+const NAME_OF_BUCKET = "james-appacademy";
 
 const multer = require("multer");
 
